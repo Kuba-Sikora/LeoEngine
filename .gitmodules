@@ -1,0 +1,3 @@
+[submodule "LeoEngine/vendor/spdlog"]
+	path = LeoEngine/vendor/spdlog
+	url = https://github.com/gabime/spdlog.git

@@ -15,21 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Leo\Core.h">
+    <ClInclude Include="src\Leo\Macros.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Leo\Application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\LeoIncludes.h">
+    <ClInclude Include="src\LeoCore.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Leo\EntryPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Leo\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Leo\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Leo\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
