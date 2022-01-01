@@ -7,16 +7,16 @@
 
 extern Leo::Application* Leo::CreateApplication();
 
-int main(int argc, char** argv) {
-
-	std::cout << "Leo Engine Started!" << std::endl;
-
+int main(int argc, char** argv)
+{
 	Leo::Log::Init();
+	
+	CORE_WARN("initialized Core Log");
+	APP_INFO("initialized Client Log");
 
 	Leo::Application* app = Leo::CreateApplication();
 	app->Run();
 	delete app;
-
 }
 
 #endif
