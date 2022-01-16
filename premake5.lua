@@ -8,7 +8,14 @@ workspace "LeoEngine"
 		"Dist"
 	}
 
-outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+-- Include Directories relative to root folder
+includeDir = {}
+includeDir["GLFW"] = "LeoEngine/vendor/glfw/include"
+
+-- Including the GLFW premake5 file
+include "LeoEngine/vendor/glfw"
 
 -- ENGINE CORE PROJECT
 project "LeoEngine"
@@ -16,8 +23,8 @@ project "LeoEngine"
 	kind "SharedLib"
 	language "C++"
 	
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	targetdir ("bin/" .. outputDir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputDir .. "/%{prj.name}")
 
 	pchheader "leopch.h"
 	pchsource "%{prj.name}/src/leopch.cpp"
@@ -32,7 +39,14 @@ project "LeoEngine"
 	{
 		-- include spdlog
 		"%{prj.name}/src/",
-		"%{prj.name}/vendor/spdlog/include/"
+		"%{prj.name}/vendor/spdlog/include/",
+		"%{includeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	-- on windows
@@ -53,7 +67,7 @@ project "LeoEngine"
 		postbuildcommands
 		{
 			-- copyting the dll file into the Sandbox directory
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputDir .. "/Sandbox")
 		}
 
 	-- Debug config
@@ -77,8 +91,8 @@ project "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
 
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	targetdir ("bin/" .. outputDir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputDir .. "/%{prj.name}")
 
 	files
 	{
