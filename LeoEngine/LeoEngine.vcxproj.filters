@@ -4,16 +4,34 @@
     <Filter Include="Leo">
       <UniqueIdentifier>{A503880B-110D-887C-9A88-9E7C0691937C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Leo\Core">
+      <UniqueIdentifier>{1D375E04-0904-B90F-321D-A7B71E49EE9D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Leo\Events">
       <UniqueIdentifier>{E983EA99-D53B-2CE7-3E43-05432A1AC7D7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platforms">
+      <UniqueIdentifier>{DDACA145-4917-56BC-9255-0762FEFE3311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\Windows">
+      <UniqueIdentifier>{17E40808-83FA-069E-CC71-92BF38C7D725}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Leo\Application.h">
-      <Filter>Leo</Filter>
+    <ClInclude Include="src\Leo\Core\Application.h">
+      <Filter>Leo\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Leo\EntryPoint.h">
-      <Filter>Leo</Filter>
+    <ClInclude Include="src\Leo\Core\Base.h">
+      <Filter>Leo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leo\Core\EntryPoint.h">
+      <Filter>Leo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leo\Core\Log.h">
+      <Filter>Leo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leo\Core\Window.h">
+      <Filter>Leo\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Leo\Events\Event.h">
       <Filter>Leo\Events</Filter>
@@ -27,21 +45,22 @@
     <ClInclude Include="src\Leo\Events\WindowEvent.h">
       <Filter>Leo\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Leo\Log.h">
-      <Filter>Leo</Filter>
+    <ClInclude Include="src\LeoEngine.h" />
+    <ClInclude Include="src\Platforms\Windows\WindowsWindow.h">
+      <Filter>Platforms\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\Leo\Macros.h">
-      <Filter>Leo</Filter>
-    </ClInclude>
-    <ClInclude Include="src\LeoCore.h" />
     <ClInclude Include="src\leopch.h" />
+    <ClInclude Include="src\Leo\Core\FPSTimer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Leo\Application.cpp">
-      <Filter>Leo</Filter>
+    <ClCompile Include="src\Leo\Core\Application.cpp">
+      <Filter>Leo\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Leo\Log.cpp">
-      <Filter>Leo</Filter>
+    <ClCompile Include="src\Leo\Core\Log.cpp">
+      <Filter>Leo\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platforms\Windows\WindowsWindow.cpp">
+      <Filter>Platforms\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\leopch.cpp" />
   </ItemGroup>
