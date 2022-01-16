@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Leo/Macros.h"
+#include "Leo/Core/Base.h"
 #include "leopch.h"
 
 namespace Leo {

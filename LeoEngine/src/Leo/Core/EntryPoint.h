@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Application.h"
-#include "Log.h"
+#include "Leo/Core/Application.h"
+#include "Leo/Core/Log.h"
 
 #ifdef LEO_PLATFORM_WINDOWS
 

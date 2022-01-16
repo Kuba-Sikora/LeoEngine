@@ -4,6 +4,7 @@
 #include <memory>
 #include <functional>
 #include <algorithm>
+#include <ctime>
 
 // data structures
 #include <string>

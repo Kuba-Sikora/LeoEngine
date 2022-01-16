@@ -1,7 +1,8 @@
 #pragma once
 
-#include "Macros.h"
-#include "spdlog/spdlog.h"
+#include "Leo/Core/Base.h"
+
+#include <spdlog/spdlog.h>
 
 namespace Leo {
 
@@ -35,11 +36,11 @@ namespace Leo {
 #define CORE_WARN(...)    ::Leo::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define CORE_INFO(...)    ::Leo::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define CORE_TRACE(...)   ::Leo::Log::GetCoreLogger()->trace(__VA_ARGS__)
-#define CORE_FATAL(...)   ::Leo::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define CORE_CRITICAL(...)   ::Leo::Log::GetCoreLogger()->fatal(__VA_ARGS__)
 						  
 // Client Log macros	  
 #define APP_ERROR(...)        ::Leo::Log::GetClientLogger()->error(__VA_ARGS__)
 #define APP_WARN(...)         ::Leo::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define APP_INFO(...)         ::Leo::Log::GetClientLogger()->info(__VA_ARGS__)
 #define APP_TRACE(...)        ::Leo::Log::GetClientLogger()->trace(__VA_ARGS__)
-#define APP_FATAL(...)        ::Leo::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define APP_CRITICAL(...)        ::Leo::Log::GetClientLogger()->fatal(__VA_ARGS__)

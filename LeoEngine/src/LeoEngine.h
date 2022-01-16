@@ -1,7 +1,8 @@
 #pragma once
 
-#include "Leo/Application.h"
-#include "Leo/Log.h"
+// core
+#include "Leo/Core/Application.h"
+#include "Leo/Core/Log.h"
 
 // events
 #include "Leo/Events/Event.h"
@@ -10,4 +11,4 @@
 #include "Leo/Events/WindowEvent.h"
 
 // Entry Point
-#include "Leo/EntryPoint.h"
+#include "Leo/Core/EntryPoint.h"

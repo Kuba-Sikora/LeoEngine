@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Macros.h"
+#include "Leo/Core/Base.h"
+#include "Leo/Core/Window.h"
 
 namespace Leo {
 
@@ -12,6 +13,10 @@ namespace Leo {
 		virtual ~Application();
 
 		void Run();
+
+	private:
+		std::unique_ptr<Window> m_Window;
+		bool m_Running = true;
 
 	};
 
