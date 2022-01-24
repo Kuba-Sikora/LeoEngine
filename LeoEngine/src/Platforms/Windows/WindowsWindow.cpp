@@ -48,6 +48,7 @@ namespace Leo {
 		}
 
 		m_Window = glfwCreateWindow((int)m_Data.Width, (int)m_Data.Height, m_Data.Title.c_str(), NULL, NULL);
+		setVSync(true);
 		glfwMakeContextCurrent(m_Window);
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 	}
@@ -56,6 +57,21 @@ namespace Leo {
 	void WindowsWindow::shutdown()
 	{
 		glfwDestroyWindow(m_Window);
+	}
+
+	void WindowsWindow::setVSync(bool state)
+	{
+		m_Data.VSync = state;
+
+		if (state)
+			glfwSwapInterval(1);
+		else
+			glfwSwapInterval(0);
+	}
+
+	bool WindowsWindow::isVSyncEnabled() const
+	{
+		return m_Data.VSync;
 	}
 
 }

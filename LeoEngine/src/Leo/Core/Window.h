@@ -32,6 +32,8 @@ namespace Leo {
 
 		virtual unsigned int getWidth() = 0;
 		virtual unsigned int getHeight() = 0;
+		virtual bool isVSyncEnabled() const = 0;
+		virtual void setVSync(bool state) = 0;
 
 		// create function to be defined per platform
 		static Window* Create(const WindowProps& props = WindowProps());

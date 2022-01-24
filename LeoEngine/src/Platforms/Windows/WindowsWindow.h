@@ -18,6 +18,11 @@ namespace Leo {
 
 		inline unsigned int getWidth() override { return m_Data.Width; }
 		inline unsigned int getHeight() override { return m_Data.Height; }
+		inline unsigned int getWidth() const override { return m_Data.Width; }
+		inline unsigned int getHeight() const override { return m_Data.Height; }
+
+		bool isVSyncEnabled() const override;
+		void setVSync(bool state) override;
 
 	private:
 		virtual void init(const WindowProps& props);
@@ -29,6 +34,7 @@ namespace Leo {
 		{
 			std::string Title;
 			unsigned int Width, Height;
+			bool VSync;
 		};
 
 		WindowData m_Data;
