@@ -1,7 +1,6 @@
 #include "leopch.h"
 
 #include "Platforms/Windows/WindowsWindow.h"
-#include "Leo/Core/Log.h"
 
 namespace Leo {
 
