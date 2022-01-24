@@ -41,8 +41,8 @@ namespace Leo {
 
 		if (!s_GLFWinitialized)
 		{
-			int success = glfwInit();
-			CORE_INFO(success);
+			if (!glfwInit())
+				CORE_CRITICAL("GLFW not initialized");
 
 			s_GLFWinitialized = true;
 		}

@@ -30,8 +30,9 @@ namespace Leo {
 		virtual ~Window() {};
 		virtual void onUpdate() = 0;
 
-		virtual unsigned int getWidth() = 0;
-		virtual unsigned int getHeight() = 0;
+		virtual unsigned int getWidth() const = 0;
+		virtual unsigned int getHeight() const = 0;
+
 		virtual bool isVSyncEnabled() const = 0;
 		virtual void setVSync(bool state) = 0;
 

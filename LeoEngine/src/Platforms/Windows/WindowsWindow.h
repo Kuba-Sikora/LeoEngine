@@ -16,8 +16,6 @@ namespace Leo {
 
 		void onUpdate() override;
 
-		inline unsigned int getWidth() override { return m_Data.Width; }
-		inline unsigned int getHeight() override { return m_Data.Height; }
 		inline unsigned int getWidth() const override { return m_Data.Width; }
 		inline unsigned int getHeight() const override { return m_Data.Height; }
 
