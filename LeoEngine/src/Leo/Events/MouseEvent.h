@@ -20,11 +20,11 @@ namespace Leo {
 	};
 
 	//BUTTON PRESS EVENT
-	class LEO_API MouseButtonPress : public MouseButtonEvent
+	class LEO_API MouseButtonPressEvent : public MouseButtonEvent
 	{
 
 	public:
-		MouseButtonPress(unsigned int buttonCode)
+		MouseButtonPressEvent(unsigned int buttonCode)
 			: MouseButtonEvent(buttonCode), m_ButtonCode(buttonCode) {}
 
 		EVENT_CLASS_TYPE(MouseButtonPress)
@@ -35,11 +35,11 @@ namespace Leo {
 	};
 
 	// BUTTON RELEASE EVENT
-	class LEO_API MouseButtonRelease : public MouseButtonEvent
+	class LEO_API MouseButtonReleaseEvent : public MouseButtonEvent
 	{
 
 	public:
-		MouseButtonRelease(unsigned int buttonCode)
+		MouseButtonReleaseEvent(unsigned int buttonCode)
 			: MouseButtonEvent(buttonCode), m_ButtonCode(buttonCode) {}
 
 		EVENT_CLASS_TYPE(MouseButtonRelease)

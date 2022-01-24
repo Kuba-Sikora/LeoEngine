@@ -5,22 +5,22 @@
 namespace Leo {
 
 	// WINDOW CLOSE
-	class LEO_API WindowClose : public Event
+	class LEO_API WindowCloseEvent : public Event
 	{
 
 	public:
-		WindowClose() {}
+		WindowCloseEvent() {}
 
 		EVENT_CLASS_TYPE(WindowClose)
 
 	};
 
 	// WINDOW RESIZE
-	class LEO_API WindowResize : public Event
+	class LEO_API WindowResizeEvent : public Event
 	{
 
 	public:
-		WindowResize(int width, int height)
+		WindowResizeEvent(int width, int height)
 			: m_Width(width), m_Height(height) {}
 
 		inline unsigned int getWidth() { return m_Width; };
