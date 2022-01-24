@@ -27,6 +27,9 @@
     <ClInclude Include="src\Leo\Core\EntryPoint.h">
       <Filter>Leo\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Leo\Core\FPSTimer.h">
+      <Filter>Leo\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Leo\Core\Log.h">
       <Filter>Leo\Core</Filter>
     </ClInclude>
@@ -50,7 +53,6 @@
       <Filter>Platforms\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\leopch.h" />
-    <ClInclude Include="src\Leo\Core\FPSTimer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Leo\Core\Application.cpp">
