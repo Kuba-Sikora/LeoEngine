@@ -18,7 +18,7 @@ namespace Leo {
 
 	void FPSTimer::onInterval()
 	{
-		CORE_INFO("FPS: {0}", getCount());
+		CORE_LOG("FPS: {0}", getCount());
 	}
 
 	void Application::Run()
@@ -33,7 +33,7 @@ namespace Leo {
 		int seconds = 0;
 #endif
 
-		CORE_INFO("VSync: ", m_Window->isVSyncEnabled());
+		CORE_LOG("VSync: ", m_Window->isVSyncEnabled());
 
 		while (m_Running)
 		{

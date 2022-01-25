@@ -12,7 +12,7 @@ int main(int argc, char** argv)
 	Leo::Log::Init();
 	
 	CORE_WARN("initialized Core Log");
-	APP_INFO("initialized Client Log");
+	APP_LOG("initialized Client Log");
 
 	Leo::Application* app = Leo::CreateApplication();
 	app->Run();
