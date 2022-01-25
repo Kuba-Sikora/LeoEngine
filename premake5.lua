@@ -29,6 +29,8 @@ project "LeoEngine"
 	pchheader "leopch.h"
 	pchsource "%{prj.name}/src/leopch.cpp"
 
+	staticruntime "off"
+
 	files
 	{
 		"%{prj.name}/src/**.h",
@@ -80,11 +82,13 @@ project "LeoEngine"
 	filter "configurations:Debug"
 		defines "LEO_DEBUG"
 		symbols "On"
+		runtime "Debug"
 
 	-- Release config
 	filter "configurations:Release"
 		defines "LEO_RELEASE"
 		optimize "On"
+		runtime "Release"
 
 	-- Dist config
 	filter "configurations:Dist"
