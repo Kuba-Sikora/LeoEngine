@@ -2,6 +2,8 @@
 #include "Leo/Core/FPSTimer.h"
 #include "Leo/Core/Application.h"
 
+#define FPSTIMER_ENABLED
+
 namespace Leo {
 
 	Application::Application()
@@ -26,7 +28,7 @@ namespace Leo {
 		// initialize timer
 		FPSTimer timer;
 		timer.setInterval(1);
-		timer.resetCycle();
+		timer.init();
 
 		int seconds = 0;
 #endif

@@ -51,12 +51,6 @@ project "LeoEngine"
 		"opengl32.lib"
 	}
 
-	defines
-	{
-		-- macros
-		"FPSTIMER_ENABLED"
-	}
-
 	-- on windows
 	filter "system:windows"
 		cppdialect "C++17"

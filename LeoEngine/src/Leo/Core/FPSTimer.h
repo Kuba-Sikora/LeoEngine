@@ -20,13 +20,14 @@ namespace Leo {
 
 		void setInterval(unsigned int interval) { m_Interval = interval; }
 
-		void resetCycle() {
-			m_CurrentCount = 0;
-			m_CycleStartTime = clock();
-		}
-
 		unsigned long getElapsedTime() {
 			return ((unsigned long) clock() - m_CycleStartTime) / CLOCKS_PER_SEC;
+		}
+
+		void init()
+		{
+			m_CycleStartTime = clock();
+			m_CurrentCount = 0;
 		}
 
 		void update()
@@ -35,8 +36,9 @@ namespace Leo {
 
 			if (m_Interval && getElapsedTime() >= m_Interval)
 			{
+				m_CycleStartTime = clock();
 				onInterval();
-				resetCycle();
+				m_CurrentCount = 0;
 			}
 		}
 
