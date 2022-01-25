@@ -20,12 +20,11 @@ namespace Leo {
 	{
 
 	public:
+		bool handled = false;
+
 		virtual EventType getEventType() const = 0;
 		virtual const char* getName() const = 0;
 		virtual std::string toString() const { return getName(); }
-
-	protected:
-		bool m_Handled = false;
 
 	};
 

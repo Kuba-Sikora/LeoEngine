@@ -1,7 +1,7 @@
 #pragma once
 
 #include "leopch.h"
-#include "Leo/Events/Event.h"
+#include "Leo/Events/WindowEvent.h"
 
 namespace Leo {
 
@@ -12,7 +12,8 @@ namespace Leo {
 		unsigned int Width;
 		unsigned int Height;
 
-		WindowProps(const std::string& title = "Leo Engine",
+		WindowProps(
+			const std::string& title = "Leo Engine",
 			unsigned int width = 1280,
 			unsigned int height = 720
 		)
@@ -26,6 +27,8 @@ namespace Leo {
 	{
 
 	public:
+		using WindowEventCallbackFn = std::function<void(Event&)>;
+		using EventCallbackFn = std::function<void(Event&)>;
 
 		virtual ~Window() {};
 		virtual void onUpdate() = 0;
@@ -36,8 +39,9 @@ namespace Leo {
 		virtual bool isVSyncEnabled() const = 0;
 		virtual void setVSync(bool state) = 0;
 
-		// create function to be defined per platform
-		static Window* Create(const WindowProps& props = WindowProps());
+		// Create() function to be defined per platform
+		// having the WidowCloseCallback separately so that the onEvent function inside Application doesn't have to check is every event is a Close event
+		static Window* Create(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& windowCallback, const WindowProps& props = WindowProps());
 	};
 
 }

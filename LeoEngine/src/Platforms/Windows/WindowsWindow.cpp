@@ -1,20 +1,23 @@
 #include "leopch.h"
 
 #include "Platforms/Windows/WindowsWindow.h"
+#include "Leo/Events/WindowEvent.h"
+#include "Leo/Events/KeyEvent.h"
+#include "Leo/Events/MouseEvent.h"
 
 namespace Leo {
 
 	static bool s_GLFWinitialized = false;
 
 	// called in the Application constructor
-	Window* Window::Create(const WindowProps& props)
+	Window* Window::Create(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& closeCallback, const WindowProps& props)
 	{
-		return new WindowsWindow(props);
+		return new WindowsWindow(eventCallback, closeCallback, props);
 	}
 
-	WindowsWindow::WindowsWindow(const WindowProps& props)
+	WindowsWindow::WindowsWindow(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& closeCallback, const WindowProps& props)
 	{
-		init(props);
+		init(eventCallback, closeCallback, props);
 	}
 
 	WindowsWindow::~WindowsWindow()
@@ -30,13 +33,16 @@ namespace Leo {
 	}
 
 	// function called in the constructor
-	void WindowsWindow::init(const WindowProps& props)
+	void WindowsWindow::init(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& closeCallback, const WindowProps& props)
 	{
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
 
-		CORE_INFO("Creating Window '{0}': {1}, {2}", props.Title, props.Width, props.Height);
+		m_Data.eventCallback = eventCallback;
+		m_Data.windowCallback = closeCallback;
+
+		CORE_LOG("Creating Window '{0}': {1}, {2}", props.Title, props.Width, props.Height);
 
 		if (!s_GLFWinitialized)
 		{

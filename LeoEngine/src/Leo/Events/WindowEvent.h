@@ -33,6 +33,8 @@ namespace Leo {
 			return ss.str();
 		}
 
+		EVENT_CLASS_TYPE(WindowResize)
+
 	private:
 		unsigned int m_Width, m_Height;
 

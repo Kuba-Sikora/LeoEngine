@@ -29,10 +29,7 @@ namespace Leo {
 		KeyPressEvent(unsigned int keyCode, int repeatCount)
 			: KeyEvent(keyCode), m_RepeatCount(repeatCount) {}
 
-		inline int getRepeatCount()
-		{
-
-		}
+		inline int getRepeatCount() { return m_RepeatCount; }
 
 		EVENT_CLASS_TYPE(KeyPress)
 

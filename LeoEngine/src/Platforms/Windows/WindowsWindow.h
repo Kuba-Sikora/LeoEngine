@@ -11,7 +11,7 @@ namespace Leo {
 	{
 
 	public:
-		WindowsWindow(const WindowProps& props);
+		WindowsWindow(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& windowCallback, const WindowProps& props);
 		virtual ~WindowsWindow();
 
 		void onUpdate() override;
@@ -23,7 +23,7 @@ namespace Leo {
 		void setVSync(bool state) override;
 
 	private:
-		virtual void init(const WindowProps& props);
+		virtual void init(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& windowCallback, const WindowProps& props);
 		virtual void shutdown();
 
 		GLFWwindow* m_Window;
@@ -33,6 +33,10 @@ namespace Leo {
 			std::string Title;
 			unsigned int Width, Height;
 			bool VSync;
+
+			// callback functions from the Application
+			EventCallbackFn eventCallback; // onEvent
+			WindowEventCallbackFn windowCallback; // onWindowEvent
 		};
 
 		WindowData m_Data;

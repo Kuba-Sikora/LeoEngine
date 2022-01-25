@@ -8,12 +8,38 @@ namespace Leo {
 
 	Application::Application()
 	{
-		m_Window = std::unique_ptr<Window>(Window::Create());
+		m_Window = std::unique_ptr<Window>(Window::Create(
+			std::bind(&Application::onEvent, this, std::placeholders::_1),
+			std::bind(&Application::onWindowEvent, this, std::placeholders::_1)
+		));
 	}
 
 	Application::~Application() 
 	{
 
+	}
+
+	void Application::onEvent(Event& e)
+	{
+	}
+
+	void Application::onWindowEvent(Event& e)
+	{
+		switch (e.getEventType())
+		{
+			case EventType::WindowClose:
+			{
+				m_Running = false;
+				break;
+			}
+			case EventType::WindowResize:
+			{
+				// casting the Event object to WindowResizeEvent in order to access the width and height
+				WindowResizeEvent resizeEvent = *(WindowResizeEvent*) &e;
+				CORE_LOG("window resize: {0}px, {1}px", resizeEvent.getWidth(), resizeEvent.getHeight());
+				break;
+			}
+		}
 	}
 
 	void FPSTimer::onInterval()
