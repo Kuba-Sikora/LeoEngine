@@ -7,7 +7,7 @@
 
 namespace Leo {
 
-	class LEO_API WindowsWindow : public Window
+	class WindowsWindow : public Window
 	{
 
 	public:

@@ -6,7 +6,7 @@
 
 namespace Leo {
 
-	class LEO_API Log
+	class Log
 	{
 
 	public:

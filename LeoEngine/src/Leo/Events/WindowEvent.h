@@ -5,7 +5,7 @@
 namespace Leo {
 
 	// WINDOW CLOSE
-	class LEO_API WindowCloseEvent : public Event
+	class WindowCloseEvent : public Event
 	{
 
 	public:
@@ -16,7 +16,7 @@ namespace Leo {
 	};
 
 	// WINDOW RESIZE
-	class LEO_API WindowResizeEvent : public Event
+	class WindowResizeEvent : public Event
 	{
 
 	public:

@@ -5,7 +5,7 @@
 namespace Leo {
 
 	// BASE CLASS FOR KEY EVENTS
-	class LEO_API KeyEvent : public Event
+	class KeyEvent : public Event
 	{
 
 	public:
@@ -22,7 +22,7 @@ namespace Leo {
 	};
 
 	// KEY PRESS
-	class LEO_API KeyPressEvent : public KeyEvent
+	class KeyPressEvent : public KeyEvent
 	{
 
 	public:
@@ -39,7 +39,7 @@ namespace Leo {
 	};
 
 	// KEY RELEASE
-	class LEO_API KeyReleaseEvent : public KeyEvent
+	class KeyReleaseEvent : public KeyEvent
 	{
 
 	public:

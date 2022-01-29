@@ -16,7 +16,7 @@ namespace Leo {
 	};
 
 	// EVENT
-	class LEO_API Event
+	class Event
 	{
 
 	public:
@@ -29,7 +29,7 @@ namespace Leo {
 	};
 
 	// EVENT DISPATCHER
-	class LEO_API EventDispatcher
+	class EventDispatcher
 	{
 
 	public:

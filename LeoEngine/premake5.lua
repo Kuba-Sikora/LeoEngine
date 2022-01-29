@@ -1,15 +1,15 @@
 -- ENGINE CORE PROJECT
 project "LeoEngine"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	
+	cppdialect "C++17"
+	staticruntime "on"
+
 	targetdir ("%{wks.location}/bin/" .. outputDir .. "/%{prj.name}")
 	objdir ("%{wks.location}/bin-int/" .. outputDir .. "/%{prj.name}")
 
 	pchheader "leopch.h"
 	pchsource "src/leopch.cpp"
-
-	staticruntime "on"
 
 	files
 	{
@@ -40,14 +40,7 @@ project "LeoEngine"
 		defines
 		{
 			-- macros
-			"LEO_PLATFORM_WINDOWS",
-			"LEO_BUILD_DLL"
-		}
-
-		postbuildcommands
-		{
-			-- copyting the dll file into the Sandbox directory
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputDir .. "/Sandbox")
+			"LEO_PLATFORM_WINDOWS"
 		}
 
 	-- Debug config

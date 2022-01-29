@@ -5,7 +5,7 @@
 namespace Leo {
 
 	// BASE BUTTON EVENT CLASS
-	class LEO_API MouseButtonEvent : public Event
+	class MouseButtonEvent : public Event
 	{
 
 	public:
@@ -20,7 +20,7 @@ namespace Leo {
 	};
 
 	//BUTTON PRESS EVENT
-	class LEO_API MouseButtonPressEvent : public MouseButtonEvent
+	class MouseButtonPressEvent : public MouseButtonEvent
 	{
 
 	public:
@@ -35,7 +35,7 @@ namespace Leo {
 	};
 
 	// BUTTON RELEASE EVENT
-	class LEO_API MouseButtonReleaseEvent : public MouseButtonEvent
+	class MouseButtonReleaseEvent : public MouseButtonEvent
 	{
 
 	public:
@@ -50,7 +50,7 @@ namespace Leo {
 	};
 
 	// MOUSE MOVE EVENT
-	class LEO_API MouseMoveEvent : public Event
+	class MouseMoveEvent : public Event
 	{
 
 	public:
@@ -68,7 +68,7 @@ namespace Leo {
 	};
 
 	// MOUSE SCROLL EVENT (Supports horizontal scrolling)
-	class LEO_API MouseScrollEvent : public Event
+	class MouseScrollEvent : public Event
 	{
 
 	public:

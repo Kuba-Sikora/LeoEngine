@@ -23,7 +23,7 @@ namespace Leo {
 	};
 
 	// abstract window class (platform independent)
-	class LEO_API Window
+	class Window
 	{
 
 	public:

@@ -4,7 +4,7 @@
 
 namespace Leo {
 
-	class LEO_API FPSTimer
+	class FPSTimer
 	{
 
 	public:

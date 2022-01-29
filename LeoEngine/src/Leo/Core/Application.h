@@ -7,7 +7,7 @@
 
 namespace Leo {
 
-	class LEO_API Application
+	class Application
 	{
 
 	public:
