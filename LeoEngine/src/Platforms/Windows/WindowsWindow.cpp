@@ -5,6 +5,8 @@
 #include "Leo/Events/KeyEvent.h"
 #include "Leo/Events/MouseEvent.h"
 
+#include <glad/glad.h>
+
 namespace Leo {
 
 	static bool s_GLFWinitialized = false;
@@ -32,7 +34,7 @@ namespace Leo {
 		glfwSwapBuffers(m_Window);
 	}
 
-	// function called in the constructor
+	// INITIALIZE THE WINDOW
 	void WindowsWindow::init(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& closeCallback, const WindowProps& props)
 	{
 		m_Data.Title = props.Title;
@@ -44,6 +46,7 @@ namespace Leo {
 
 		CORE_LOG("Creating Window '{0}': {1}, {2}", props.Title, props.Width, props.Height);
 
+		// initialize GLFW
 		if (!s_GLFWinitialized)
 		{
 			if (!glfwInit())
@@ -52,9 +55,18 @@ namespace Leo {
 			s_GLFWinitialized = true;
 		}
 
+		// create the application window
 		m_Window = glfwCreateWindow((int)m_Data.Width, (int)m_Data.Height, m_Data.Title.c_str(), NULL, NULL);
 		setVSync(true);
 		glfwMakeContextCurrent(m_Window);
+
+		// initialize GLAD
+		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+		{
+			CORE_CRITICAL("failed to initialize GLAD");
+		}
+
+		// user pointer to access m_Data
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 
 		// setting GLFW callback to be handled by the Application::onEvent function

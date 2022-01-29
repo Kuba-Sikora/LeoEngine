@@ -21,12 +21,14 @@ project "LeoEngine"
 	{
 		"src",
 		"vendor/spdlog/include",
-		"%{includeDir.GLFW}"
+		"%{includeDir.GLFW}",
+		"%{includeDir.GLAD}"
 	}
 
 	links
 	{
 		"GLFW",
+		"GLAD",
 		"opengl32.lib"
 	}
 
@@ -40,7 +42,8 @@ project "LeoEngine"
 		defines
 		{
 			-- macros
-			"LEO_PLATFORM_WINDOWS"
+			"LEO_PLATFORM_WINDOWS",
+			"GLFW_INCLUDE_NONE"
 		}
 
 	-- Debug config
