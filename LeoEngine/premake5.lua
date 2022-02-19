@@ -22,14 +22,16 @@ project "LeoEngine"
 		"src",
 		"vendor/spdlog/include",
 		"%{includeDir.GLFW}",
-		"%{includeDir.GLAD}"
+		"%{includeDir.GLAD}",
+		"%{includeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
 		"GLAD",
-		"opengl32.lib"
+		"opengl32.lib",
+		"ImGui"
 	}
 
 	-- on windows

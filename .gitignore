@@ -364,3 +364,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 LeoEngine/vendor/glfw
+LeoEngine/vendor/glad
+LeoEngine/vendor/imgui

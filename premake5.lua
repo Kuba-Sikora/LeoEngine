@@ -15,10 +15,12 @@ outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 includeDir = {}
 includeDir["GLFW"] = "%{wks.location}/LeoEngine/vendor/glfw/include"
 includeDir["GLAD"] = "%{wks.location}/LeoEngine/vendor/glad/include"
+includeDir["ImGui"] = "%{wks.location}/LeoEngine/vendor/imgui"
 
--- Including the GLFW and GLAD premake5 files
+-- Including vendor premake5 files
 include "LeoEngine/vendor/glfw"
 include "LeoEngine/vendor/glad"
+include "LeoEngine/vendor/imgui"
 
 -- ENGINE CORE PROJECT
 include "LeoEngine"
