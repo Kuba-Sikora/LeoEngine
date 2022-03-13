@@ -10,11 +10,11 @@
     <Filter Include="Leo\Events">
       <UniqueIdentifier>{E983EA99-D53B-2CE7-3E43-05432A1AC7D7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Platforms">
-      <UniqueIdentifier>{DDACA145-4917-56BC-9255-0762FEFE3311}</UniqueIdentifier>
+    <Filter Include="Leo\PlatformSpecific">
+      <UniqueIdentifier>{FF20D849-EBAF-6113-94CE-750E803C72B9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Platforms\Windows">
-      <UniqueIdentifier>{17E40808-83FA-069E-CC71-92BF38C7D725}</UniqueIdentifier>
+    <Filter Include="Leo\PlatformSpecific\Windows">
+      <UniqueIdentifier>{395AFABD-2515-EA69-CECC-62B4BA6634FA}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -48,10 +48,10 @@
     <ClInclude Include="src\Leo\Events\WindowEvent.h">
       <Filter>Leo\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\LeoEngine.h" />
-    <ClInclude Include="src\Platforms\Windows\WindowsWindow.h">
-      <Filter>Platforms\Windows</Filter>
+    <ClInclude Include="src\Leo\PlatformSpecific\Windows\WindowsWindow.h">
+      <Filter>Leo\PlatformSpecific\Windows</Filter>
     </ClInclude>
+    <ClInclude Include="src\LeoEngine.h" />
     <ClInclude Include="src\leopch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -61,8 +61,8 @@
     <ClCompile Include="src\Leo\Core\Log.cpp">
       <Filter>Leo\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platforms\Windows\WindowsWindow.cpp">
-      <Filter>Platforms\Windows</Filter>
+    <ClCompile Include="src\Leo\PlatformSpecific\Windows\WindowsWindow.cpp">
+      <Filter>Leo\PlatformSpecific\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\leopch.cpp" />
   </ItemGroup>

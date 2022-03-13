@@ -7,20 +7,24 @@
 
 namespace Leo {
 
-	class Application
-	{
+	// Application singleton which the Game class will inherit from
+	class Application {
 
 	public:
 		Application();
 		virtual ~Application();
 
 		void Run();
-		void onEvent(Event& e);
-		void onWindowEvent(Event& e);
+		void OnEvent(Event& e);
+		void OnWindowEvent(Event& e);
+
+		Window& GetWindow() { return *m_Window; };
 
 	private:
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
+
+		static Application* s_Instance;
 
 	};
 
@@ -28,5 +32,3 @@ namespace Leo {
 	Application* CreateApplication();
 
 }
-
-

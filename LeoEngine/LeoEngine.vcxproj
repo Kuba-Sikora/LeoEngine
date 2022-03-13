@@ -150,14 +150,14 @@
     <ClInclude Include="src\Leo\Events\KeyEvent.h" />
     <ClInclude Include="src\Leo\Events\MouseEvent.h" />
     <ClInclude Include="src\Leo\Events\WindowEvent.h" />
+    <ClInclude Include="src\Leo\PlatformSpecific\Windows\WindowsWindow.h" />
     <ClInclude Include="src\LeoEngine.h" />
-    <ClInclude Include="src\Platforms\Windows\WindowsWindow.h" />
     <ClInclude Include="src\leopch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Leo\Core\Application.cpp" />
     <ClCompile Include="src\Leo\Core\Log.cpp" />
-    <ClCompile Include="src\Platforms\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\Leo\PlatformSpecific\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\leopch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

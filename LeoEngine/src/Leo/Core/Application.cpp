@@ -1,55 +1,49 @@
-#include "leopch.h" 
-#include "Leo/Core/FPSTimer.h"
 #include "Leo/Core/Application.h"
+#include "Leo/Core/FPSTimer.h"
+#include "leopch.h"
 
 #define FPSTIMER_ENABLED
 
 namespace Leo {
 
-	Application::Application()
-	{
-		m_Window = std::unique_ptr<Window>(Window::Create(
-			std::bind(&Application::onEvent, this, std::placeholders::_1),
-			std::bind(&Application::onWindowEvent, this, std::placeholders::_1)
-		));
-	}
+	// declaration for the static s_Instance member -> to be set inside the Application constructor
+	Application* Application::s_Instance = nullptr;
 
-	Application::~Application() 
-	{
-
-	}
-
-	void Application::onEvent(Event& e)
-	{
-	}
-
-	void Application::onWindowEvent(Event& e)
-	{
-		switch (e.getEventType())
-		{
-			case EventType::WindowClose:
-			{
-				m_Running = false;
-				break;
-			}
-			case EventType::WindowResize:
-			{
-				// casting the Event object to WindowResizeEvent in order to access the width and height
-				WindowResizeEvent resizeEvent = *(WindowResizeEvent*) &e;
-				CORE_LOG("window resize: {0}px, {1}px", resizeEvent.getWidth(), resizeEvent.getHeight());
-				break;
-			}
+	Application::Application() {
+		if (s_Instance) {
+			CORE_LOG("Application already exists");
+		}
+		else {
+			s_Instance = this;
+			m_Window = std::unique_ptr<Window>(Window::Create(
+				std::bind(&Application::OnEvent, this, std::placeholders::_1),
+				std::bind(&Application::OnWindowEvent, this, std::placeholders::_1)));
 		}
 	}
 
-	void FPSTimer::onInterval()
-	{
-		CORE_LOG("FPS: {0}", getCount());
+	Application::~Application() {}
+
+	void Application::OnEvent(Event& e) {}
+
+	void Application::OnWindowEvent(Event& e) {
+		switch (e.getEventType()) {
+			case EventType::WindowClose:
+				m_Running = false;
+				break;
+
+			case EventType::WindowResize:
+				// casting the Event object to WindowResizeEvent in order to access the
+				// width and height
+				WindowResizeEvent resizeEvent = *(WindowResizeEvent*)&e;
+				CORE_LOG("window resize: {0}px, {1}px", resizeEvent.getWidth(),
+					resizeEvent.getHeight());
+				break;
+		}
 	}
 
-	void Application::Run()
-	{
+	void FPSTimer::onInterval() { CORE_LOG("FPS: {0}", getCount()); }
 
+	void Application::Run() {
 #ifdef FPSTIMER_ENABLED
 		// initialize timer
 		FPSTimer timer;
@@ -59,16 +53,14 @@ namespace Leo {
 		int seconds = 0;
 #endif
 
-		CORE_LOG("VSync: ", m_Window->isVSyncEnabled());
+		CORE_LOG("VSync: ", m_Window->IsVSyncEnabled());
 
-		while (m_Running)
-		{
-			m_Window->onUpdate();
+		while (m_Running) {
+			m_Window->OnUpdate();
 
 #ifdef FPSTIMER_ENABLED
 			timer.update();
 #endif
-
 		}
 	}
 

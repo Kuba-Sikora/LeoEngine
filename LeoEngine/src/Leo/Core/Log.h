@@ -6,19 +6,16 @@
 
 namespace Leo {
 
-	class Log
-	{
+	class Log {
 
 	public:
 		static void Init();
 
-		inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() 
-		{
+		inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() {
 			return s_CoreLogger;
 		}
 
-		inline static std::shared_ptr<spdlog::logger>& GetClientLogger()
-		{
+		inline static std::shared_ptr<spdlog::logger>& GetClientLogger() {
 			return s_ClientLogger;
 		}
 
@@ -37,7 +34,7 @@ namespace Leo {
 #define CORE_LOG(...)    ::Leo::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define CORE_TRACE(...)   ::Leo::Log::GetCoreLogger()->trace(__VA_ARGS__)
 #define CORE_CRITICAL(...)   ::Leo::Log::GetCoreLogger()->critical(__VA_ARGS__)
-						  
+
 // Client Log macros	  
 #define APP_ERROR(...)        ::Leo::Log::GetClientLogger()->error(__VA_ARGS__)
 #define APP_WARN(...)         ::Leo::Log::GetClientLogger()->warn(__VA_ARGS__)
