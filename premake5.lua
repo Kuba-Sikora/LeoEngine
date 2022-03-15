@@ -9,7 +9,7 @@ workspace "LeoEngine"
 		"Dist"
 	}
 
-outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 -- Include Directories relative to root folder
 includeDir = {}
