@@ -1,6 +1,6 @@
-#include "Leo/Core/Application.h"
-#include "Leo/Core/FPSTimer.h"
 #include "leopch.h"
+#include "Leo/Core/FPSTimer.h"
+#include "Leo/Core/Application.h"
 
 #define FPSTIMER_ENABLED
 
