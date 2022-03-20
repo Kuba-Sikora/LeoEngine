@@ -18,41 +18,43 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Leo\Core\Application.h">
+    <ClInclude Include="src\Leo\Core\Application.hpp">
       <Filter>Leo\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Leo\Core\Base.h">
+    <ClInclude Include="src\Leo\Core\Base.hpp">
       <Filter>Leo\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Leo\Core\EntryPoint.h">
+    <ClInclude Include="src\Leo\Core\EntryPoint.hpp">
       <Filter>Leo\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Leo\Core\FPSTimer.h">
+    <ClInclude Include="src\Leo\Core\FPSTimer.hpp">
       <Filter>Leo\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Leo\Core\Log.h">
       <Filter>Leo\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Leo\Core\Window.h">
+    <ClInclude Include="src\Leo\Core\Log.hpp">
       <Filter>Leo\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Leo\Events\Event.h">
+    <ClInclude Include="src\Leo\Core\Window.hpp">
+      <Filter>Leo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leo\Events\Event.hpp">
       <Filter>Leo\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Leo\Events\KeyEvent.h">
+    <ClInclude Include="src\Leo\Events\KeyEvent.hpp">
       <Filter>Leo\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Leo\Events\MouseEvent.h">
+    <ClInclude Include="src\Leo\Events\MouseEvent.hpp">
       <Filter>Leo\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Leo\Events\WindowEvent.h">
+    <ClInclude Include="src\Leo\Events\WindowEvent.hpp">
       <Filter>Leo\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Leo\PlatformSpecific\Windows\WindowsWindow.h">
+    <ClInclude Include="src\Leo\PlatformSpecific\Windows\WindowsWindow.hpp">
       <Filter>Leo\PlatformSpecific\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\LeoEngine.h" />
-    <ClInclude Include="src\leopch.h" />
+    <ClInclude Include="src\LeoEngine.hpp" />
+    <ClInclude Include="src\leopch.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Leo\Core\Application.cpp">

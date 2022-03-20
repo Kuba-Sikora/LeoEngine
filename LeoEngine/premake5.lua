@@ -8,12 +8,12 @@ project "LeoEngine"
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
 
-	pchheader "leopch.h"
+	pchheader "leopch.hpp"
 	pchsource "src/leopch.cpp"
 
 	files
 	{
-		"src/**.h",
+		"src/**.hpp",
 		"src/**.cpp"
 	}
 

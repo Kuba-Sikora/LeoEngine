@@ -1,4 +1,4 @@
-#include <LeoEngine.h>
+#include <LeoEngine.hpp>
 
 class Sandbox : public Leo::Application {
 

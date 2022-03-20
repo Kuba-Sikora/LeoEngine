@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Leo/Core/Base.h"
-#include "leopch.h"
+#include "Leo/Core/Base.hpp"
+#include "leopch.hpp"
 
 namespace Leo {
 

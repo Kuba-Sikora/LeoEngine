@@ -1,12 +1,16 @@
 #pragma once
 
-#include "Leo/Core/Base.h"
-#include "Leo/Core/Window.h"
+#include "Leo/Core/Base.hpp"
+#include "Leo/Core/Window.hpp"
 
 #include <GLFW/glfw3.h>
 
 namespace Leo {
 
+	// WindowsWindow is class derived from the abstract Window class
+	// uses the GLFW library to render the window
+	// not a singleton - might add support for multiple windows
+	
 	class WindowsWindow : public Window
 	{
 

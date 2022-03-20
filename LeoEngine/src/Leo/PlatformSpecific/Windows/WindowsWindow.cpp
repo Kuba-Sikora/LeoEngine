@@ -1,9 +1,9 @@
-#include "leopch.h"
+#include "leopch.hpp"
 
-#include "Leo/Events/KeyEvent.h"
-#include "Leo/Events/MouseEvent.h"
-#include "Leo/Events/WindowEvent.h"
-#include "Leo/PlatformSpecific/Windows/WindowsWindow.h"
+#include "Leo/Events/KeyEvent.hpp"
+#include "Leo/Events/MouseEvent.hpp"
+#include "Leo/Events/WindowEvent.hpp"
+#include "Leo/PlatformSpecific/Windows/WindowsWindow.hpp"
 
 #include <glad/glad.h>
 

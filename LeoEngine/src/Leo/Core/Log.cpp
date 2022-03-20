@@ -1,5 +1,5 @@
-#include "leopch.h"
-#include "Leo/Core/Log.h"
+#include "leopch.hpp"
+#include "Leo/Core/Log.hpp"
 
 #include <spdlog/sinks/stdout_color_sinks.h>
 #include <spdlog/pattern_formatter.h>

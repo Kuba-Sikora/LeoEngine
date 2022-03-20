@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Leo/Events/Event.h"
+#include "Leo/Events/Event.hpp"
 
 namespace Leo {
 

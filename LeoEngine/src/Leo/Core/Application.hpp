@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Leo/Core/Base.h"
-#include "Leo/Core/Window.h"
-#include "Leo/Events/Event.h"
-#include "Leo/Events/WindowEvent.h"
+#include "Leo/Core/Base.hpp"
+#include "Leo/Core/Window.hpp"
+#include "Leo/Events/Event.hpp"
+#include "Leo/Events/WindowEvent.hpp"
 
 namespace Leo {
 
@@ -13,6 +13,8 @@ namespace Leo {
 	public:
 		Application();
 		virtual ~Application();
+
+		static Application& GetInstance() { return *s_Instance;  }
 
 		void Run();
 		void OnEvent(Event& e);

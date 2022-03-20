@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Leo/Core/Base.h"
+#include "Leo/Core/Base.hpp"
 
 #include <spdlog/spdlog.h>
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "leopch.h"
-#include "Leo/Events/WindowEvent.h"
+#include "leopch.hpp"
+#include "Leo/Events/WindowEvent.hpp"
 
 namespace Leo {
 

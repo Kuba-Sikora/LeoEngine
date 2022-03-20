@@ -11,7 +11,7 @@
 #include <sstream>
 #include <vector>
 
-#include "Leo/Core/Log.h"
+#include "Leo/Core/Log.hpp"
 
 #ifdef LEO_PLATFORM_WINDOWS
 	#include <Windows.h>
