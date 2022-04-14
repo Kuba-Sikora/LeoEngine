@@ -21,7 +21,7 @@ namespace Leo {
 		}
 	}
 
-	Application::~Application() {}
+	Application::~Application() { CORE_LOG("Application delete"); }
 
 	void Application::OnEvent(Event& e) {}
 

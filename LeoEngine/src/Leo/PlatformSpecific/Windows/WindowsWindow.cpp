@@ -44,12 +44,14 @@ namespace Leo {
 		m_Data.EventCallback = eventCallback;
 		m_Data.WindowCallback = closeCallback;
 
-		CORE_LOG("Creating Window '{0}': {1}, {2}", props.Title, props.Width, props.Height);
+		CORE_WARN("Creating Window '{0}': {1}, {2}", props.Title, props.Width, props.Height);
 
 		// initialize GLFW
 		if (!s_GLFWinitialized) {
 			if (!glfwInit())
 				CORE_CRITICAL("GLFW not initialized");
+			else
+				CORE_WARN("GLFW initialized");
 
 			s_GLFWinitialized = true;
 		}
@@ -60,9 +62,10 @@ namespace Leo {
 		glfwMakeContextCurrent(m_Window);
 
 		// initialize GLAD
-		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 			CORE_CRITICAL("failed to initialize GLAD");
-		}
+		else
+			CORE_WARN("GLAD initialized");
 
 		// user pointer to access m_Data
 		glfwSetWindowUserPointer(m_Window, &m_Data);

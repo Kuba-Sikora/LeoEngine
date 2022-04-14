@@ -3,8 +3,8 @@
 class Sandbox : public Leo::Application {
 
 public:
-	Sandbox() {}
-	~Sandbox(){}
+	Sandbox() { APP_LOG("sandbox constructor"); }
+	~Sandbox() { APP_LOG("sandbox delete"); }
 
 };
 
