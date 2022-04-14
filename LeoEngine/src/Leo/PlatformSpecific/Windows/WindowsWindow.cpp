@@ -67,7 +67,7 @@ namespace Leo {
 		// user pointer to access m_Data
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 
-		// setting GLFW callback to be handled by the Application::onEvent function
+		// setting GLFW callback to be handled by the Application::OnEvent function
 
 		// Window Events
 		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window) {

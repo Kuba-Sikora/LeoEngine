@@ -35,7 +35,7 @@ namespace Leo {
 		virtual void SetVSync(bool state) = 0;
 
 		// Create() function to be defined per platform
-		// having the WidowCloseCallback separately so that the onEvent function inside Application doesn't have to check is every event is a Close event
+		// having the WidowCloseCallback separately so that the OnEvent function inside Application doesn't have to check if every event is a Close event
 		static Window* Create(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& windowCallback, const WindowProps& props = WindowProps());
 
 	};

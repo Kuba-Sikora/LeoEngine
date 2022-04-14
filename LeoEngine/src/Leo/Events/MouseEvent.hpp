@@ -5,8 +5,7 @@
 namespace Leo {
 
 	// BASE BUTTON EVENT CLASS
-	class MouseButtonEvent : public Event
-	{
+	class MouseButtonEvent : public Event {
 
 	public:
 		inline unsigned int getButtonCode() { return m_ButtonCode; };
@@ -20,8 +19,7 @@ namespace Leo {
 	};
 
 	//BUTTON PRESS EVENT
-	class MouseButtonPressEvent : public MouseButtonEvent
-	{
+	class MouseButtonPressEvent : public MouseButtonEvent {
 
 	public:
 		MouseButtonPressEvent(unsigned int buttonCode)
@@ -35,8 +33,7 @@ namespace Leo {
 	};
 
 	// BUTTON RELEASE EVENT
-	class MouseButtonReleaseEvent : public MouseButtonEvent
-	{
+	class MouseButtonReleaseEvent : public MouseButtonEvent {
 
 	public:
 		MouseButtonReleaseEvent(unsigned int buttonCode)
@@ -50,8 +47,7 @@ namespace Leo {
 	};
 
 	// MOUSE MOVE EVENT
-	class MouseMoveEvent : public Event
-	{
+	class MouseMoveEvent : public Event {
 
 	public:
 		MouseMoveEvent(float x, float y)
@@ -68,8 +64,7 @@ namespace Leo {
 	};
 
 	// MOUSE SCROLL EVENT (Supports horizontal scrolling)
-	class MouseScrollEvent : public Event
-	{
+	class MouseScrollEvent : public Event {
 
 	public:
 		MouseScrollEvent(float offsetX, float offsetY)

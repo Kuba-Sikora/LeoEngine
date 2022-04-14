@@ -5,8 +5,7 @@
 namespace Leo {
 
 	// BASE CLASS FOR KEY EVENTS
-	class KeyEvent : public Event
-	{
+	class KeyEvent : public Event {
 
 	public:
 		inline unsigned int getKeyCode() { return m_KeyCode; };
@@ -22,8 +21,7 @@ namespace Leo {
 	};
 
 	// KEY PRESS
-	class KeyPressEvent : public KeyEvent
-	{
+	class KeyPressEvent : public KeyEvent {
 
 	public:
 		KeyPressEvent(unsigned int keyCode, int repeatCount)
@@ -39,8 +37,7 @@ namespace Leo {
 	};
 
 	// KEY RELEASE
-	class KeyReleaseEvent : public KeyEvent
-	{
+	class KeyReleaseEvent : public KeyEvent {
 
 	public:
 		KeyReleaseEvent(unsigned int keyCode)
@@ -50,7 +47,7 @@ namespace Leo {
 
 	private:
 		unsigned int m_KeyCode;
-		
+
 	};
 
 }

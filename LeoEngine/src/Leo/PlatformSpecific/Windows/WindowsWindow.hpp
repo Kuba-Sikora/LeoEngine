@@ -39,8 +39,8 @@ namespace Leo {
 			bool VSync;
 
 			// callback functions from the Application
-			EventCallbackFn EventCallback; // onEvent
-			WindowEventCallbackFn WindowCallback; // onWindowEvent
+			EventCallbackFn EventCallback; // OnEvent
+			WindowEventCallbackFn WindowCallback; // OnWindowEvent
 		};
 
 		WindowData m_Data;

@@ -6,8 +6,7 @@
 namespace Leo {
 
 	// EVENT TYPES
-	enum class EventType
-	{
+	enum class EventType {
 		None = 0,
 		KeyPress, KeyRelease, // keyboard events
 		MouseButtonPress, MouseButtonRelease, // mouse button events
@@ -16,21 +15,18 @@ namespace Leo {
 	};
 
 	// EVENT
-	class Event
-	{
+	struct Event {
 
-	public:
 		bool handled = false;
 
-		virtual EventType getEventType() const = 0;
-		virtual const char* getName() const = 0;
-		virtual std::string toString() const { return getName(); }
+		virtual EventType GetEventType() const = 0;
+		virtual const char* GetName() const = 0;
+		virtual std::string ToString() const { return GetName(); }
 
 	};
 
 	// EVENT DISPATCHER
-	class EventDispatcher
-	{
+	class EventDispatcher {
 
 	public:
 		EventDispatcher(Event& event)
@@ -43,6 +39,6 @@ namespace Leo {
 
 }
 
-#define EVENT_CLASS_TYPE(type) static EventType getStaticType() { return EventType::##type; }\
-	                           virtual EventType getEventType() const override { return getStaticType(); }\
-	                           virtual const char* getName() const override { return #type; }
+#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::##type; }\
+	                           virtual EventType GetEventType() const override { return GetStaticType(); }\
+	                           virtual const char* GetName() const override { return #type; }

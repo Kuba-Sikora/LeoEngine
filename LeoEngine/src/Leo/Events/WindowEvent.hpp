@@ -5,8 +5,7 @@
 namespace Leo {
 
 	// WINDOW CLOSE
-	class WindowCloseEvent : public Event
-	{
+	class WindowCloseEvent : public Event {
 
 	public:
 		WindowCloseEvent() {}
@@ -16,8 +15,7 @@ namespace Leo {
 	};
 
 	// WINDOW RESIZE
-	class WindowResizeEvent : public Event
-	{
+	class WindowResizeEvent : public Event {
 
 	public:
 		WindowResizeEvent(int width, int height)
@@ -26,8 +24,7 @@ namespace Leo {
 		inline unsigned int getWidth() { return m_Width; };
 		inline unsigned int getHeight() { return m_Height; };
 
-		std::string toString() const override
-		{
+		std::string ToString() const override {
 			std::stringstream ss;
 			ss << "Window resize: " << m_Width << ", " << m_Height;
 			return ss.str();
