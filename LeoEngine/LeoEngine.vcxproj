@@ -144,13 +144,15 @@
     <ClInclude Include="src\Leo\Core\Base.hpp" />
     <ClInclude Include="src\Leo\Core\EntryPoint.hpp" />
     <ClInclude Include="src\Leo\Core\FPSTimer.hpp" />
-    <ClInclude Include="src\Leo\Core\Layer.hpp" />
     <ClInclude Include="src\Leo\Core\Log.hpp" />
     <ClInclude Include="src\Leo\Core\Window.hpp" />
     <ClInclude Include="src\Leo\Events\Event.hpp" />
     <ClInclude Include="src\Leo\Events\KeyEvent.hpp" />
     <ClInclude Include="src\Leo\Events\MouseEvent.hpp" />
     <ClInclude Include="src\Leo\Events\WindowEvent.hpp" />
+    <ClInclude Include="src\Leo\Layers\Layer.hpp" />
+    <ClInclude Include="src\Leo\Layers\LayerStack.hpp" />
+    <ClInclude Include="src\Leo\Layers\ScreenSpaceLayer.hpp" />
     <ClInclude Include="src\Leo\PlatformSpecific\Windows\WindowsWindow.hpp" />
     <ClInclude Include="src\LeoEngine.hpp" />
     <ClInclude Include="src\leopch.hpp" />
@@ -158,6 +160,8 @@
   <ItemGroup>
     <ClCompile Include="src\Leo\Core\Application.cpp" />
     <ClCompile Include="src\Leo\Core\Log.cpp" />
+    <ClCompile Include="src\Leo\Layers\LayerStack.cpp" />
+    <ClCompile Include="src\Leo\Layers\ScreenSpaceLayer.cpp" />
     <ClCompile Include="src\Leo\PlatformSpecific\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\leopch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

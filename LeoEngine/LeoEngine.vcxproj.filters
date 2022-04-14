@@ -10,6 +10,9 @@
     <Filter Include="Leo\Events">
       <UniqueIdentifier>{E983EA99-D53B-2CE7-3E43-05432A1AC7D7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Leo\Layers">
+      <UniqueIdentifier>{C46ECDA8-B026-0FF6-192E-E8510505AAE6}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Leo\PlatformSpecific">
       <UniqueIdentifier>{FF20D849-EBAF-6113-94CE-750E803C72B9}</UniqueIdentifier>
     </Filter>
@@ -30,8 +33,6 @@
     <ClInclude Include="src\Leo\Core\FPSTimer.hpp">
       <Filter>Leo\Core</Filter>
     </ClInclude>
-      <Filter>Leo\Core</Filter>
-    </ClInclude>
     <ClInclude Include="src\Leo\Core\Log.hpp">
       <Filter>Leo\Core</Filter>
     </ClInclude>
@@ -50,6 +51,15 @@
     <ClInclude Include="src\Leo\Events\WindowEvent.hpp">
       <Filter>Leo\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Leo\Layers\Layer.hpp">
+      <Filter>Leo\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leo\Layers\LayerStack.hpp">
+      <Filter>Leo\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leo\Layers\ScreenSpaceLayer.hpp">
+      <Filter>Leo\Layers</Filter>
+    </ClInclude>
     <ClInclude Include="src\Leo\PlatformSpecific\Windows\WindowsWindow.hpp">
       <Filter>Leo\PlatformSpecific\Windows</Filter>
     </ClInclude>
@@ -62,6 +72,12 @@
     </ClCompile>
     <ClCompile Include="src\Leo\Core\Log.cpp">
       <Filter>Leo\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Leo\Layers\LayerStack.cpp">
+      <Filter>Leo\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Leo\Layers\ScreenSpaceLayer.cpp">
+      <Filter>Leo\Layers</Filter>
     </ClCompile>
     <ClCompile Include="src\Leo\PlatformSpecific\Windows\WindowsWindow.cpp">
       <Filter>Leo\PlatformSpecific\Windows</Filter>

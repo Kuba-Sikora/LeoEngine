@@ -19,9 +19,7 @@ namespace Leo {
 	};
 
 	// abstract window class (platform independent)
-	class Window {
-
-	public:
+	struct Window {
 		using WindowEventCallbackFn = std::function<void(Event&)>;
 		using EventCallbackFn = std::function<void(Event&)>;
 
@@ -37,7 +35,6 @@ namespace Leo {
 		// Create() function to be defined per platform
 		// having the WidowCloseCallback separately so that the OnEvent function inside Application doesn't have to check if every event is a Close event
 		static Window* Create(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& windowCallback, const WindowProps& props = WindowProps());
-
 	};
 
 }
