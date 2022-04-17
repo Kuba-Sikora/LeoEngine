@@ -20,7 +20,7 @@ namespace Leo {
 		m_LayerStack->PushLayerFront(new ScreenSpaceLayer("screenspace3"));
 	}
 
-	Application::~Application() { CORE_LOG("Application delete"); }
+	Application::~Application() { CORE_LOG("delete Application"); }
 
 	void Application::OnEvent(Event& e) {
 		m_LayerStack->OnEvent(e);
@@ -53,8 +53,8 @@ namespace Leo {
 
 		int seconds = 0;
 #endif
-
-		CORE_LOG("VSync: ", m_Window->IsVSyncEnabled());
+		if (m_Window->IsVSyncEnabled())
+			CORE_LOG("VSync enabled ");
 
 		while (m_Running) {
 			m_Window->OnUpdate();

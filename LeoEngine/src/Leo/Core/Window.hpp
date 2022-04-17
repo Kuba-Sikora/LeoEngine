@@ -23,7 +23,7 @@ namespace Leo {
 		using WindowEventCallbackFn = std::function<void(Event&)>;
 		using EventCallbackFn = std::function<void(Event&)>;
 
-		virtual ~Window() { CORE_LOG("Window Delete"); };
+		virtual ~Window() { CORE_LOG("delete Window"); };
 		virtual void OnUpdate() = 0;
 
 		virtual unsigned int GetWidth() const = 0;
