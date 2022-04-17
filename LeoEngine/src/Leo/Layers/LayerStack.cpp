@@ -17,6 +17,15 @@ namespace Leo {
 		m_Layers.reserve(5);
 	}
 
+	LayerStack::~LayerStack() {
+		CORE_LOG("delete LayerStack");
+
+		// delete all the heap allocated layers
+		for (Layer* layer : m_Layers) {
+			delete layer;
+		}
+	}
+
 	std::vector<Layer*>& LayerStack::GetLayers() {
 		return m_Layers;
 	}

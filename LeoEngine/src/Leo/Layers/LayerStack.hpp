@@ -10,7 +10,7 @@ namespace Leo {
 
 	public:
 		LayerStack(LayerStack& other) = delete;
-		~LayerStack() { CORE_LOG("LayerStack delete"); }
+		~LayerStack();
 
 		static LayerStack* GetInstance();
 
