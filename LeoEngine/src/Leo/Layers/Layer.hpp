@@ -26,7 +26,10 @@ namespace Leo {
 		virtual void OnMount() = 0;
 		virtual void OnUnmount() = 0;
 		virtual void OnUpdate() = 0;
-		virtual void OnEvent(Event& e) = 0;
+
+		// return true if event should stop propagating and be marked as handled
+		// else return false
+		virtual bool OnEvent(Event& e) = 0;
 
 	protected:
 		std::string m_Title;

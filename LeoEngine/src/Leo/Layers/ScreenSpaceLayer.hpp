@@ -9,7 +9,7 @@ namespace Leo {
 	public:
 		ScreenSpaceLayer(std::string title) : Layer(title) {}
 
-		virtual void OnEvent(Event& e) override;
+		virtual bool OnEvent(Event& e) override;
 
 		virtual void OnUpdate() override {}
 		virtual void OnMount() override {}

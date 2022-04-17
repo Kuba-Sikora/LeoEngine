@@ -3,6 +3,6 @@
 
 namespace Leo {
 	
-	void ScreenSpaceLayer::OnEvent(Event& e) { CORE_LOG("{0}: {1}", m_Title, e.ToString()); }
+	bool ScreenSpaceLayer::OnEvent(Event& e) { return false; }
 
 }

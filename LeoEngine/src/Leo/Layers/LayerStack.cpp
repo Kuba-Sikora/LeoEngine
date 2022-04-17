@@ -39,11 +39,11 @@ namespace Leo {
 	}
 
 	void LayerStack::OnEvent(Event& e) {
-		for (Layer* layer : m_Layers) {
-			layer->OnEvent(e);
-
-			if (e.handled)
-				break;
+		if (!e.IsHandled()) {
+			for (Layer* layer : m_Layers) {
+				if (layer->OnEvent(e))
+					break;
+			}
 		}
 	}
 }

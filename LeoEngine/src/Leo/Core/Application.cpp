@@ -15,9 +15,7 @@ namespace Leo {
 		m_LayerStack = std::unique_ptr<LayerStack>(LayerStack::GetInstance());
 
 
-		m_LayerStack->PushLayerFront(new ScreenSpaceLayer("screenspace1"));
-		m_LayerStack->PushLayerBack(new ScreenSpaceLayer("screenspace2"));
-		m_LayerStack->PushLayerFront(new ScreenSpaceLayer("screenspace3"));
+		m_LayerStack->PushLayerFront(new ScreenSpaceLayer("Screenspace Layer"));
 	}
 
 	Application::~Application() { CORE_LOG("delete Application"); }
@@ -54,7 +52,7 @@ namespace Leo {
 		int seconds = 0;
 #endif
 		if (m_Window->IsVSyncEnabled())
-			CORE_LOG("VSync enabled ");
+			CORE_LOG("VSync enabled");
 
 		while (m_Running) {
 			m_Window->OnUpdate();

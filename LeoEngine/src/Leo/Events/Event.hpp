@@ -15,13 +15,18 @@ namespace Leo {
 	};
 
 	// EVENT
-	struct Event {
+	class Event {
 
-		bool handled = false;
+	public:
+		bool IsHandled() { return m_Handled; }
+		void StopPropagation() { m_Handled = true; }
 
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
 		virtual std::string ToString() const { return GetName(); }
+
+	protected:
+		bool m_Handled = false;
 
 	};
 
