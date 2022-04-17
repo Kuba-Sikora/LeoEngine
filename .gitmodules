@@ -1,9 +1,3 @@
 [submodule "LeoEngine/vendor/spdlog"]
 	path = LeoEngine/vendor/spdlog
 	url = https://github.com/gabime/spdlog.git
-[submodule "LeoEngine/vendor/glfw"]
-	path = LeoEngine/vendor/glfw
-	url = https://github.com/TheCherno/GLFW
-[submodule "LeoEngine/vendor/imgui"]
-	path = LeoEngine/vendor/imgui
-	url = https://github.com/TheCherno/imgui
