@@ -13,17 +13,18 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 -- Include Directories relative to root folder
 includeDir = {}
-includeDir["GLFW"] = "%{wks.location}/LeoEngine/vendor/glfw/include"
-includeDir["GLAD"] = "%{wks.location}/LeoEngine/vendor/glad/include"
-includeDir["ImGui"] = "%{wks.location}/LeoEngine/vendor/imgui"
+includeDir["spdlog"] = "%{wks.location}/vendor/spdlog/include"
+includeDir["GLFW"] = "%{wks.location}/vendor/glfw/include"
+includeDir["GLAD"] = "%{wks.location}/vendor/glad/include"
+includeDir["ImGui"] = "%{wks.location}/vendor/imgui"
 
 -- Including vendor premake5 files
-include "LeoEngine/vendor/glfw"
-include "LeoEngine/vendor/glad"
-include "LeoEngine/vendor/imgui"
-
--- ENGINE CORE PROJECT
-include "LeoEngine"
+include "vendor/glfw"
+include "vendor/glad"
+include "vendor/imgui"
 
 -- SANDBOX PROJECT
-include "Sandbox"
+include "src/Sandbox"
+
+-- ENGINE PROJECT
+include "src/Leo"

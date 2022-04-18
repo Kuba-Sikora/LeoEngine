@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Leo">
+      <UniqueIdentifier>{A503880B-110D-887C-9A88-9E7C0691937C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Leo\Core">
+      <UniqueIdentifier>{1D375E04-0904-B90F-321D-A7B71E49EE9D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Leo\Events">
+      <UniqueIdentifier>{E983EA99-D53B-2CE7-3E43-05432A1AC7D7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Leo\Layers">
+      <UniqueIdentifier>{C46ECDA8-B026-0FF6-192E-E8510505AAE6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Leo\PlatformSpecific">
+      <UniqueIdentifier>{FF20D849-EBAF-6113-94CE-750E803C72B9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Leo\PlatformSpecific\Windows">
+      <UniqueIdentifier>{395AFABD-2515-EA69-CECC-62B4BA6634FA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Core\Application\Application.hpp">
+      <Filter>Leo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Base.hpp">
+      <Filter>Leo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\EntryPoint.hpp">
+      <Filter>Leo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\FPSTimer.hpp">
+      <Filter>Leo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Log.hpp">
+      <Filter>Leo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Window.hpp">
+      <Filter>Leo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leo\Events\Event.hpp">
+      <Filter>Leo\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leo\Events\KeyEvent.hpp">
+      <Filter>Leo\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leo\Events\MouseEvent.hpp">
+      <Filter>Leo\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leo\Events\WindowEvent.hpp">
+      <Filter>Leo\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leo\Layers\Layer.hpp">
+      <Filter>Leo\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leo\Layers\LayerStack.hpp">
+      <Filter>Leo\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leo\Layers\ScreenSpaceLayer.hpp">
+      <Filter>Leo\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Leo\PlatformSpecific\Windows\WindowsWindow.hpp">
+      <Filter>Leo\PlatformSpecific\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LeoEngine.hpp" />
+    <ClInclude Include="src\leopch.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Core\Application\Application.cpp">
+      <Filter>Leo\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Log.cpp">
+      <Filter>Leo\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Leo\Layers\LayerStack.cpp">
+      <Filter>Leo\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Leo\Layers\ScreenSpaceLayer.cpp">
+      <Filter>Leo\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Leo\PlatformSpecific\Windows\WindowsWindow.cpp">
+      <Filter>Leo\PlatformSpecific\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\leopch.cpp" />
+  </ItemGroup>
+</Project>
