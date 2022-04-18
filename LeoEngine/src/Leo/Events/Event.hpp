@@ -30,18 +30,6 @@ namespace Leo {
 
 	};
 
-	// EVENT DISPATCHER
-	class EventDispatcher {
-
-	public:
-		EventDispatcher(Event& event)
-			: m_Event(event) {}
-
-	private:
-		Event& m_Event;
-
-	};
-
 }
 
 #define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::##type; }\
