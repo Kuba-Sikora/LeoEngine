@@ -21,18 +21,20 @@ namespace Framework {
 	WindowsWindow::WindowsWindow(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& closeCallback, const WindowProps& props)
 	{
 		Init(eventCallback, closeCallback, props);
+		CORE_LOG("{0} constructed", props.Title);
 	}
 
 	WindowsWindow::~WindowsWindow()
 	{
 		Shutdown();
+		CORE_LOG("{0} deleted", data_.Title);
 	}
 
 	// UPDATE FUNCTION CALLED EVERY FRAME
 	void WindowsWindow::OnUpdate()
 	{
-		glfwPollEvents();
 		glfwSwapBuffers(native_window_);
+		glfwPollEvents();
 	}
 
 	// INITIALIZE THE WINDOW

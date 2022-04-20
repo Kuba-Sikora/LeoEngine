@@ -19,7 +19,8 @@ project "Application"
 	{
 		"%{includeDir.spdlog}",
 		"%{includeDir.GLFW}",
-		"%{wks.location}/Framework/src"
+		"%{wks.location}/Framework/src",
+		"%{wks.location}/Editor/src"
 	}
 
 	links

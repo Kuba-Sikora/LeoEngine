@@ -12,7 +12,7 @@ namespace Framework {
 		unsigned int Height;
 
 		WindowProps(
-			const std::string& title = "Leo Engine",
+			const std::string& title = "Leo Engine Window",
 			unsigned int width = 1280,
 			unsigned int height = 720
 		) : Title(title), Width(width), Height(height) {}
@@ -29,6 +29,7 @@ namespace Framework {
 
 		virtual unsigned int GetWidth() const = 0;
 		virtual unsigned int GetHeight() const = 0;
+		virtual std::string GetTitle() const = 0;
 
 		virtual bool IsVSyncEnabled() const = 0;
 		virtual void SetVSync(bool state) = 0;
@@ -38,6 +39,7 @@ namespace Framework {
 		// Create() function to be defined per platform
 		// having the WidowCloseCallback separately so that the OnEvent function inside Application doesn't have to check if every event is a Close event
 		static Window* Create(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& windowCallback, const WindowProps& props = WindowProps());
+
 	};
 
 }

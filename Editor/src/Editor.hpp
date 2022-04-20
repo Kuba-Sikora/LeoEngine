@@ -6,10 +6,18 @@
 class Editor {
 
 public:
+	~Editor() { APP_LOG("Editor delete"); }
+
 	static Editor* Construct(Application* app);
 	static Editor* Get();
 
-	void Start();
+	void Run();
+
+	void OnUpdate();
+	void OnEvent(Framework::Event& e);
+	void OnWindowEvent(Framework::Event& e);
+
+	std::shared_ptr<Framework::Window> GetWindow() const { return window_; };
 
 private:
 	Editor(Application* app);
@@ -19,6 +27,6 @@ private:
 	bool running_;
 
 	Application* application_;
-	std::unique_ptr<Framework::Window> window_;
+	std::shared_ptr<Framework::Window> window_;
 
 };

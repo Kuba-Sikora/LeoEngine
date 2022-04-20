@@ -1,6 +1,7 @@
 #include "leopch.hpp"
 
 #include "Application.hpp"
+#include "Editor.hpp"
 
 Application* Application::s_Instance = nullptr;
 
@@ -14,9 +15,7 @@ Application* Application::GetInstance() {
 Application::Application() {
 	APP_LOG("application constructor");
 
-	window_ = std::unique_ptr<Framework::Window>(Framework::Window::Create(
-		std::bind(&Application::OnEvent, this, std::placeholders::_1),
-		std::bind(&Application::OnWindowEvent, this, std::placeholders::_1)));
+	
 	// m_LayerStack = std::unique_ptr<LayerStack>(LayerStack::GetInstance());
 
 
@@ -30,9 +29,12 @@ void Application::OnEvent(Framework::Event& e) {
 }
 
 void Application::OnWindowEvent(Framework::Event& e) {
+
+	// When App is detached
 	switch (e.GetEventType()) {
 		case Framework::EventType::WindowClose:
 			running_ = false;
+			AttachToEditor();
 			break;
 
 		case Framework::EventType::WindowResize:
@@ -45,10 +47,28 @@ void Application::OnWindowEvent(Framework::Event& e) {
 	}
 }
 
-void Application::Update() {
-	window_->OnUpdate();
+// UPDATE FUNCTION CALLED EVERY FRAME
+void Application::OnUpdate() {
+	if (detached_)
+		window_->OnUpdate();
+
 	if (IsKeyPressed(GLFW_KEY_UP))
 		APP_LOG("Up Arrow Pressed");
+}
+
+void Application::DetachFromEditor() {
+	detached_ = true;
+	Framework::WindowProps props = Framework::WindowProps("Application Window");
+	window_ = std::shared_ptr<Framework::Window>(Framework::Window::Create(
+		std::bind(&Application::OnEvent, this, std::placeholders::_1),
+		std::bind(&Application::OnWindowEvent, this, std::placeholders::_1),
+		props
+	));
+}
+
+void Application::AttachToEditor() {
+	detached_ = false;
+	window_ = Editor::Get()->GetWindow();
 }
 
 bool Application::IsKeyPressed(int key) {

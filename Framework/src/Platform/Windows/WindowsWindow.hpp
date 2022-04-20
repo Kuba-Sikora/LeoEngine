@@ -20,6 +20,7 @@ namespace Framework {
 
 		inline unsigned int GetWidth() const override { return data_.Width; }
 		inline unsigned int GetHeight() const override { return data_.Height; }
+		inline std::string GetTitle() const override { return data_.Title; }
 
 		bool IsVSyncEnabled() const override;
 		void SetVSync(bool state) override;

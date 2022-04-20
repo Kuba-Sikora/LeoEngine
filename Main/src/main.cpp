@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
 	Application* app = Application::GetInstance();
 	Editor* editor = Editor::Construct(app);
 
-	editor->Start();
+	editor->Run();
 
 	delete app;
 	delete editor;
