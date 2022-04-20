@@ -1,5 +1,3 @@
-#pragma once
-
 #include "Application.hpp"
 #include "Editor.hpp"
 #include "Framework.hpp"
@@ -14,7 +12,9 @@ int main(int argc, char** argv) {
 	APP_LOG("initialized Client Log");
 
 	Application* app = Application::GetInstance();
-	Editor* editor = Editor::GetInstance();
+	Editor* editor = Editor::Construct(app);
+
+	editor->Start();
 
 	delete app;
 	delete editor;

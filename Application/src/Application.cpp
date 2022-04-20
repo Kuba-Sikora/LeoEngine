@@ -1,9 +1,6 @@
 #include "leopch.hpp"
 
 #include "Application.hpp"
-#include "FPSTimer.hpp"
-
-#define FPSTIMER_ENABLED
 
 Application* Application::s_Instance = nullptr;
 
@@ -15,7 +12,7 @@ Application* Application::GetInstance() {
 }
 
 Application::Application() {
-	CORE_LOG("application constructor");
+	APP_LOG("application constructor");
 
 	window_ = std::unique_ptr<Framework::Window>(Framework::Window::Create(
 		std::bind(&Application::OnEvent, this, std::placeholders::_1),
@@ -26,7 +23,7 @@ Application::Application() {
 	// m_LayerStack->PushLayerFront(new ScreenSpaceLayer("Screenspace Layer"));
 }
 
-Application::~Application() { CORE_LOG("delete Application"); }
+Application::~Application() { APP_LOG("delete Application"); }
 
 void Application::OnEvent(Framework::Event& e) {
 	// m_LayerStack->OnEvent(e);
@@ -42,15 +39,23 @@ void Application::OnWindowEvent(Framework::Event& e) {
 			// casting the Event object to WindowResizeEvent in order to access the
 			// width and height
 			Framework::WindowResizeEvent resizeEvent = *dynamic_cast<Framework::WindowResizeEvent*>(&e);
-			CORE_LOG("window resize: {0}px, {1}px", resizeEvent.getWidth(),
+			APP_LOG("window resize: {0}px, {1}px", resizeEvent.getWidth(),
 				resizeEvent.getHeight());
 			break;
 	}
 }
 
-void FPSTimer::onInterval() { CORE_LOG("FPS: {0}", getCount()); }
-
 void Application::Update() {
 	window_->OnUpdate();
+	if (IsKeyPressed(GLFW_KEY_UP))
+		APP_LOG("Up Arrow Pressed");
+}
+
+bool Application::IsKeyPressed(int key) {
+	return Framework::Input::IsKeyPressed(window_->GetNativeWindow(), key);
+}
+
+bool Application::IsMouseButtonPressed(int button) {
+	return Framework::Input::IsMouseButtonPressed(window_->GetNativeWindow(), button);
 }
 

@@ -1,6 +1,6 @@
 -- EDITOR PROJECT
 project "Editor"
-	kind "ConsoleApp"
+	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
 
@@ -19,8 +19,8 @@ project "Editor"
 	{
 		"%{includeDir.spdlog}",
 		"%{includeDir.GLFW}",
-		"%{wks.location}/src/Framework/src",
-		"%{wks.location}/src/Application/src"
+		"%{wks.location}/Framework/src",
+		"%{wks.location}/Application/src"
 	}
 
 	links

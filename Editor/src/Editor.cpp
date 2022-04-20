@@ -2,14 +2,18 @@
 
 Editor* Editor::s_Instance = nullptr;
 
-Editor* Editor::GetInstance() {
+Editor* Editor::Construct(Application* app) {
 	if (!s_Instance) {
-		s_Instance = new Editor;
+		s_Instance = new Editor(app);
 	}
 	return s_Instance;
 }
 
-Editor::Editor() {}
+Editor* Editor::Get() {
+	return s_Instance;
+}
+
+Editor::Editor(Application* app) : application_(app) {}
 
 void Editor::Start() {
 	running_ = true;

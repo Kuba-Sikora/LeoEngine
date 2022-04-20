@@ -6,12 +6,13 @@
 class Editor {
 
 public:
-	static Editor* GetInstance();
+	static Editor* Construct(Application* app);
+	static Editor* Get();
 
 	void Start();
 
 private:
-	Editor();
+	Editor(Application* app);
 
 	static Editor* s_Instance;
 

@@ -18,17 +18,19 @@ namespace Framework {
 
 		void OnUpdate() override;
 
-		inline unsigned int GetWidth() const override { return m_Data.Width; }
-		inline unsigned int GetHeight() const override { return m_Data.Height; }
+		inline unsigned int GetWidth() const override { return data_.Width; }
+		inline unsigned int GetHeight() const override { return data_.Height; }
 
 		bool IsVSyncEnabled() const override;
 		void SetVSync(bool state) override;
+
+		void* GetNativeWindow() const override { return native_window_; }
 
 	private:
 		virtual void Init(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& windowCallback, const WindowProps& props);
 		virtual void Shutdown();
 
-		GLFWwindow* m_Window;
+		GLFWwindow* native_window_;
 
 		struct WindowData {
 			std::string Title;
@@ -40,7 +42,7 @@ namespace Framework {
 			WindowEventCallbackFn WindowCallback; // OnWindowEvent
 		};
 
-		WindowData m_Data;
+		WindowData data_;
 
 	};
 

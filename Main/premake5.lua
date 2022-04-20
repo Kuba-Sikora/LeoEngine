@@ -1,15 +1,13 @@
--- FRAMEWORK PROJECT
-project "Framework"
-	kind "StaticLib"
+-- MAIN PROJECT
+project "Main"
+	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++17"
+
+	targetdir ("%{wks.location}/bin/" .. outputdir .. "/LeoEngine")
+	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/LeoEngine")
+
 	staticruntime "on"
-
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
-
-	pchheader "leopch.hpp"
-	pchsource "leopch.cpp"
 
 	files
 	{
@@ -19,19 +17,18 @@ project "Framework"
 
 	includedirs
 	{
-		"%{wks.location}/src/Framework/src",
 		"%{includeDir.spdlog}",
 		"%{includeDir.GLFW}",
-		"%{includeDir.GLAD}",
-		"%{includeDir.ImGui}"
+		"%{wks.location}/Application/src",
+		"%{wks.location}/Editor/src",
+		"%{wks.location}/Framework/src"
 	}
 
 	links
 	{
-		"GLFW",
-		"GLAD",
-		"opengl32.lib",
-		"ImGui"
+		"Application",
+        "Editor",
+		"Framework"
 	}
 
 	-- on windows
@@ -44,9 +41,7 @@ project "Framework"
 		defines
 		{
 			-- macros
-			"LEO_PLATFORM_WINDOWS",
-			-- let GLAD include all the OpenGL stuff
-			"GLFW_INCLUDE_NONE"
+			"LEO_PLATFORM_WINDOWS"
 		}
 
 	-- Debug config

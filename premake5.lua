@@ -1,6 +1,6 @@
 workspace "LeoEngine"
 	architecture "x86_64"
-	startproject "Editor"
+	startproject "Main"
 
 	configurations
 	{
@@ -23,11 +23,14 @@ include "vendor/glfw"
 include "vendor/glad"
 include "vendor/imgui"
 
+-- MAIN PROJECT
+include "Main"
+
 -- EDITOR PROJECT
-include "src/Editor"
+include "Editor"
 
 -- APPLICATION PROJECT
-include "src/Application"
+include "Application"
 
 -- FRAMEWORK PROJECT
-include "src/Framework"
+include "Framework"

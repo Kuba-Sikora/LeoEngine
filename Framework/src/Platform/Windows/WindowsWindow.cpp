@@ -32,18 +32,18 @@ namespace Framework {
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		glfwSwapBuffers(native_window_);
 	}
 
 	// INITIALIZE THE WINDOW
 	void WindowsWindow::Init(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& closeCallback, const WindowProps& props)
 	{
-		m_Data.Title = props.Title;
-		m_Data.Width = props.Width;
-		m_Data.Height = props.Height;
+		data_.Title = props.Title;
+		data_.Width = props.Width;
+		data_.Height = props.Height;
 
-		m_Data.EventCallback = eventCallback;
-		m_Data.WindowCallback = closeCallback;
+		data_.EventCallback = eventCallback;
+		data_.WindowCallback = closeCallback;
 
 		CORE_WARN("Creating Window '{0}': {1}, {2}", props.Title, props.Width, props.Height);
 
@@ -58,9 +58,9 @@ namespace Framework {
 		}
 
 		// create the application window
-		m_Window = glfwCreateWindow((int)m_Data.Width, (int)m_Data.Height, m_Data.Title.c_str(), NULL, NULL);
+		native_window_ = glfwCreateWindow((int)data_.Width, (int)data_.Height, data_.Title.c_str(), NULL, NULL);
 		SetVSync(true);
-		glfwMakeContextCurrent(m_Window);
+		glfwMakeContextCurrent(native_window_);
 
 		// initialize GLAD
 		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -68,19 +68,19 @@ namespace Framework {
 		else
 			CORE_WARN("GLAD initialized");
 
-		// user pointer to access m_Data
-		glfwSetWindowUserPointer(m_Window, &m_Data);
+		// user pointer to access data_
+		glfwSetWindowUserPointer(native_window_, &data_);
 
 		// setting GLFW callback to be handled by the Application::OnEvent function
 
 		// Window Events
-		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window) {
+		glfwSetWindowCloseCallback(native_window_, [](GLFWwindow* window) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			WindowCloseEvent event;
 			data.WindowCallback(event);
 		});
 
-		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) {
+		glfwSetWindowSizeCallback(native_window_, [](GLFWwindow* window, int width, int height) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			data.Width = width;
 			data.Height = height;
@@ -90,7 +90,7 @@ namespace Framework {
 		});
 
 		// Key Events
-		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
+		glfwSetKeyCallback(native_window_, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
 			switch (action) {
@@ -113,7 +113,7 @@ namespace Framework {
 		});
 
 		// Mouse Events
-		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods) {
+		glfwSetMouseButtonCallback(native_window_, [](GLFWwindow* window, int button, int action, int mods) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
 			switch (action) {
@@ -130,13 +130,13 @@ namespace Framework {
 			}
 		});
 
-		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double offsetX, double offsetY) {
+		glfwSetScrollCallback(native_window_, [](GLFWwindow* window, double offsetX, double offsetY) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			MouseScrollEvent event((float)offsetX, (float)offsetY);
 			data.EventCallback(event);
 		});
 
-		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double x, double y) {
+		glfwSetCursorPosCallback(native_window_, [](GLFWwindow* window, double x, double y) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			MouseMoveEvent event((float)x, (float)y);
 			data.EventCallback(event);
@@ -146,12 +146,12 @@ namespace Framework {
 	// function called in the destructor
 	void WindowsWindow::Shutdown()
 	{
-		glfwDestroyWindow(m_Window);
+		glfwDestroyWindow(native_window_);
 	}
 
 	void WindowsWindow::SetVSync(bool state)
 	{
-		m_Data.VSync = state;
+		data_.VSync = state;
 
 		if (state)
 			glfwSwapInterval(1);
@@ -161,7 +161,7 @@ namespace Framework {
 
 	bool WindowsWindow::IsVSyncEnabled() const
 	{
-		return m_Data.VSync;
+		return data_.VSync;
 	}
 
 }

@@ -15,10 +15,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1362EE31-7FCC-A2A8-C80A-544E34B480FD}</ProjectGuid>
+    <ProjectGuid>{D9DE78AF-4594-F1A4-CE88-EB7B3A3DE8A8}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Framework</RootNamespace>
+    <RootNamespace>Application</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -54,30 +54,29 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>..\..\bin\Debug-windows-x86_64\Framework\</OutDir>
-    <IntDir>..\..\bin-int\Debug-windows-x86_64\Framework\</IntDir>
-    <TargetName>Framework</TargetName>
+    <OutDir>..\bin\Debug-windows-x86_64\Application\</OutDir>
+    <IntDir>..\bin-int\Debug-windows-x86_64\Application\</IntDir>
+    <TargetName>Application</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\..\bin\Release-windows-x86_64\Framework\</OutDir>
-    <IntDir>..\..\bin-int\Release-windows-x86_64\Framework\</IntDir>
-    <TargetName>Framework</TargetName>
+    <OutDir>..\bin\Release-windows-x86_64\Application\</OutDir>
+    <IntDir>..\bin-int\Release-windows-x86_64\Application\</IntDir>
+    <TargetName>Application</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
-    <OutDir>..\..\bin\Dist-windows-x86_64\Framework\</OutDir>
-    <IntDir>..\..\bin-int\Dist-windows-x86_64\Framework\</IntDir>
-    <TargetName>Framework</TargetName>
+    <OutDir>..\bin\Dist-windows-x86_64\Application\</OutDir>
+    <IntDir>..\bin-int\Dist-windows-x86_64\Application\</IntDir>
+    <TargetName>Application</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Create</PrecompiledHeader>
-      <PrecompiledHeaderFile>leopch.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>LEO_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;LEO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\..\vendor\spdlog\include;..\..\vendor\glfw\include;..\..\vendor\glad\include;..\..\vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>LEO_PLATFORM_WINDOWS;LEO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\vendor\spdlog\include;..\vendor\glfw\include;..\Framework\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -87,17 +86,13 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <Lib>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>leopch.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>LEO_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;LEO_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\..\vendor\spdlog\include;..\..\vendor\glfw\include;..\..\vendor\glad\include;..\..\vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>LEO_PLATFORM_WINDOWS;LEO_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\vendor\spdlog\include;..\vendor\glfw\include;..\Framework\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -111,17 +106,13 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
-    <Lib>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>leopch.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>LEO_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;LEO_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\..\vendor\spdlog\include;..\..\vendor\glfw\include;..\..\vendor\glad\include;..\..\vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>LEO_PLATFORM_WINDOWS;LEO_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\vendor\spdlog\include;..\vendor\glfw\include;..\Framework\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -135,35 +126,21 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
-    <Lib>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Events\Event.hpp" />
-    <ClInclude Include="src\Events\KeyEvent.hpp" />
-    <ClInclude Include="src\Events\MouseEvent.hpp" />
-    <ClInclude Include="src\Events\WindowEvent.hpp" />
-    <ClInclude Include="src\Framework.hpp" />
-    <ClInclude Include="src\Log\Log.hpp" />
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.hpp" />
-    <ClInclude Include="src\Window\Window.hpp" />
-    <ClInclude Include="src\leopch.hpp" />
+    <ClInclude Include="src\Application.hpp" />
+    <ClInclude Include="src\Layers\Layer.hpp" />
+    <ClInclude Include="src\Layers\LayerStack.hpp" />
+    <ClInclude Include="src\Layers\ScreenSpaceLayer.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Log\Log.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
-    <ClCompile Include="src\leopch.cpp" />
+    <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\Layers\LayerStack.cpp" />
+    <ClCompile Include="src\Layers\ScreenSpaceLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\vendor\glfw\GLFW.vcxproj">
-      <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\vendor\glad\GLAD.vcxproj">
-      <Project>{5D4A857C-4981-860D-F26D-6C10DE83020F}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\vendor\imgui\ImGui.vcxproj">
-      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
+    <ProjectReference Include="..\Framework\Framework.vcxproj">
+      <Project>{1362EE31-7FCC-A2A8-C80A-544E34B480FD}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

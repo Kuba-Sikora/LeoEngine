@@ -15,6 +15,9 @@ public:
 	void OnEvent(Framework::Event& e);
 	void OnWindowEvent(Framework::Event& e);
 
+	bool IsKeyPressed(int key);
+	bool IsMouseButtonPressed(int button);
+
 	Framework::Window& GetWindow() const { return *window_; };
 
 private:

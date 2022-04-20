@@ -33,7 +33,7 @@ namespace Framework {
 		virtual bool IsVSyncEnabled() const = 0;
 		virtual void SetVSync(bool state) = 0;
 
-		// virtual void* GetNativeWindow() const = 0;
+		virtual void* GetNativeWindow() const = 0;
 
 		// Create() function to be defined per platform
 		// having the WidowCloseCallback separately so that the OnEvent function inside Application doesn't have to check if every event is a Close event

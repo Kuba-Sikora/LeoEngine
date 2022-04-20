@@ -34,6 +34,9 @@
       <Filter>Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Framework.hpp" />
+    <ClInclude Include="src\Input\Input.hpp">
+      <Filter>Input</Filter>
+    </ClInclude>
     <ClInclude Include="src\Log\Log.hpp">
       <Filter>Log</Filter>
     </ClInclude>
@@ -48,6 +51,9 @@
   <ItemGroup>
     <ClCompile Include="src\Log\Log.cpp">
       <Filter>Log</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
