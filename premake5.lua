@@ -1,6 +1,6 @@
 workspace "LeoEngine"
 	architecture "x86_64"
-	startproject "Sandbox"
+	startproject "Editor"
 
 	configurations
 	{
@@ -23,8 +23,11 @@ include "vendor/glfw"
 include "vendor/glad"
 include "vendor/imgui"
 
--- SANDBOX PROJECT
-include "src/Sandbox"
+-- EDITOR PROJECT
+include "src/Editor"
 
--- ENGINE PROJECT
-include "src/Leo"
+-- APPLICATION PROJECT
+include "src/Application"
+
+-- FRAMEWORK PROJECT
+include "src/Framework"
