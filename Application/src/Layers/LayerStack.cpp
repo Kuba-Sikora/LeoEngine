@@ -13,33 +13,33 @@ namespace Framework {
 
 	LayerStack::LayerStack() {
 		// reserve memory for 5 layers to avoid unnecessary reallocations
-		m_Layers.reserve(5);
+		layers_.reserve(5);
 	}
 
 	LayerStack::~LayerStack() {
 		CORE_LOG("delete LayerStack");
 
 		// delete all the heap allocated layers
-		for (Layer* layer : m_Layers) {
+		for (Layer* layer : layers_) {
 			delete layer;
 		}
 	}
 
 	std::vector<Layer*>& LayerStack::GetLayers() {
-		return m_Layers;
+		return layers_;
 	}
 
 	void LayerStack::PushLayerFront(Layer* layer) {
-		m_Layers.insert(m_Layers.begin(), layer);
+		layers_.insert(layers_.begin(), layer);
 	}
 	
 	void LayerStack::PushLayerBack(Layer* layer) {
-		m_Layers.push_back(layer);
+		layers_.push_back(layer);
 	}
 
-	void LayerStack::OnEvent(Event& e) {
+	void LayerStack::OnEvent(Event& e) const {
 		if (!e.IsHandled()) {
-			for (Layer* layer : m_Layers) {
+			for (Layer* layer : layers_) {
 				if (layer->OnEvent(e))
 					break;
 			}

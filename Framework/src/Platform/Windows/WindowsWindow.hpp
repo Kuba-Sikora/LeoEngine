@@ -10,33 +10,33 @@ namespace Framework {
 	// uses the GLFW library to render the window
 	// not a singleton - might add support for multiple windows
 
-	class WindowsWindow : public Window {
+	class WindowsWindow final : public Window {
 
 	public:
 		WindowsWindow(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& windowCallback, const WindowProps& props);
-		virtual ~WindowsWindow();
+		~WindowsWindow() override;
 
 		void OnUpdate() override;
 
-		inline unsigned int GetWidth() const override { return data_.Width; }
-		inline unsigned int GetHeight() const override { return data_.Height; }
-		inline std::string GetTitle() const override { return data_.Title; }
+		[[nodiscard]] unsigned int GetWidth() const override { return data_.Width; }
+		[[nodiscard]] unsigned int GetHeight() const override { return data_.Height; }
+		[[nodiscard]] std::string GetTitle() const override { return data_.Title; }
 
-		bool IsVSyncEnabled() const override;
+		[[nodiscard]] bool IsVSyncEnabled() const override;
 		void SetVSync(bool state) override;
 
-		void* GetNativeWindow() const override { return native_window_; }
+		[[nodiscard]] void* GetNativeWindow() const override { return native_window_; }
 
 	private:
-		virtual void Init(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& windowCallback, const WindowProps& props);
-		virtual void Shutdown();
+		void Init(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& windowCallback, const WindowProps& props);
+		void Shutdown();
 
-		GLFWwindow* native_window_;
+		GLFWwindow* native_window_{};
 
 		struct WindowData {
 			std::string Title;
-			unsigned int Width, Height;
-			bool VSync;
+			unsigned int Width{}, Height{};
+			bool VSync{};
 
 			// callback functions from the Application
 			EventCallbackFn EventCallback; // OnEvent

@@ -8,7 +8,7 @@ namespace Framework {
 	class WindowCloseEvent : public Event {
 
 	public:
-		WindowCloseEvent() {}
+		WindowCloseEvent() = default;
 
 		EVENT_CLASS_TYPE(WindowClose)
 
@@ -19,21 +19,21 @@ namespace Framework {
 
 	public:
 		WindowResizeEvent(int width, int height)
-			: m_Width(width), m_Height(height) {}
+			: width_(width), height_(height) {}
 
-		inline unsigned int getWidth() { return m_Width; };
-		inline unsigned int getHeight() { return m_Height; };
+		[[nodiscard]] unsigned int GetWidth() const { return width_; };
+		[[nodiscard]] unsigned int GetHeight() const { return height_; };
 
-		std::string ToString() const override {
+		[[nodiscard]] std::string ToString() const override {
 			std::stringstream ss;
-			ss << "Window resize: " << m_Width << ", " << m_Height;
+			ss << "Window resize: " << width_ << ", " << height_;
 			return ss.str();
 		}
 
 		EVENT_CLASS_TYPE(WindowResize)
 
 	private:
-		unsigned int m_Width, m_Height;
+		unsigned int width_, height_;
 
 	};
 

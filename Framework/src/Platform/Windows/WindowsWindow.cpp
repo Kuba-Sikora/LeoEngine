@@ -13,39 +13,34 @@ namespace Framework {
 	static bool s_GLFWinitialized = false;
 
 	// called in the Application constructor
-	Window* Window::Create(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& closeCallback, const WindowProps& props)
-	{
-		return new WindowsWindow(eventCallback, closeCallback, props);
+	Window* Window::Create(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& windowCallback, const WindowProps& props) {
+		return new WindowsWindow(eventCallback, windowCallback, props);
 	}
 
-	WindowsWindow::WindowsWindow(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& closeCallback, const WindowProps& props)
-	{
-		Init(eventCallback, closeCallback, props);
+	WindowsWindow::WindowsWindow(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& windowCallback, const WindowProps& props) {
+		Init(eventCallback, windowCallback, props);
 		CORE_LOG("{0} constructed", props.Title);
 	}
 
-	WindowsWindow::~WindowsWindow()
-	{
+	WindowsWindow::~WindowsWindow() {
 		Shutdown();
 		CORE_LOG("{0} deleted", data_.Title);
 	}
 
 	// UPDATE FUNCTION CALLED EVERY FRAME
-	void WindowsWindow::OnUpdate()
-	{
+	void WindowsWindow::OnUpdate() {
 		glfwSwapBuffers(native_window_);
 		glfwPollEvents();
 	}
 
 	// INITIALIZE THE WINDOW
-	void WindowsWindow::Init(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& closeCallback, const WindowProps& props)
-	{
+	void WindowsWindow::Init(const EventCallbackFn& eventCallback, const WindowEventCallbackFn& windowCallback, const WindowProps& props) {
 		data_.Title = props.Title;
 		data_.Width = props.Width;
 		data_.Height = props.Height;
 
 		data_.EventCallback = eventCallback;
-		data_.WindowCallback = closeCallback;
+		data_.WindowCallback = windowCallback;
 
 		CORE_WARN("Creating Window '{0}': {1}, {2}", props.Title, props.Width, props.Height);
 
@@ -60,12 +55,12 @@ namespace Framework {
 		}
 
 		// create the application window
-		native_window_ = glfwCreateWindow((int)data_.Width, (int)data_.Height, data_.Title.c_str(), NULL, NULL);
+		native_window_ = glfwCreateWindow(static_cast<int>(data_.Width), static_cast<int>(data_.Height), data_.Title.c_str(), nullptr, nullptr);
 		SetVSync(true);
 		glfwMakeContextCurrent(native_window_);
 
 		// initialize GLAD
-		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+		if (!gladLoadGLLoader(reinterpret_cast<GLADloadproc>(glfwGetProcAddress)))
 			CORE_CRITICAL("failed to initialize GLAD");
 		else
 			CORE_WARN("GLAD initialized");
@@ -77,13 +72,13 @@ namespace Framework {
 
 		// Window Events
 		glfwSetWindowCloseCallback(native_window_, [](GLFWwindow* window) {
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			WindowData& data = *static_cast<WindowData*>(glfwGetWindowUserPointer(window));
 			WindowCloseEvent event;
 			data.WindowCallback(event);
 		});
 
 		glfwSetWindowSizeCallback(native_window_, [](GLFWwindow* window, int width, int height) {
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			WindowData& data = *static_cast<WindowData*>(glfwGetWindowUserPointer(window));
 			data.Width = width;
 			data.Height = height;
 
@@ -93,20 +88,23 @@ namespace Framework {
 
 		// Key Events
 		glfwSetKeyCallback(native_window_, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			WindowData& data = *static_cast<WindowData*>(glfwGetWindowUserPointer(window));
 
 			switch (action) {
-				case GLFW_PRESS: {
+				case GLFW_PRESS:
+				{
 					KeyPressEvent event(key, 0);
 					data.EventCallback(event);
 					break;
 				}
-				case GLFW_REPEAT: {
+				case GLFW_REPEAT:
+				{
 					KeyPressEvent event(key, 1);
 					data.EventCallback(event);
 					break;
 				}
-				case GLFW_RELEASE: {
+				case GLFW_RELEASE:
+				{
 					KeyReleaseEvent event(key);
 					data.EventCallback(event);
 					break;
@@ -116,15 +114,17 @@ namespace Framework {
 
 		// Mouse Events
 		glfwSetMouseButtonCallback(native_window_, [](GLFWwindow* window, int button, int action, int mods) {
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			WindowData& data = *static_cast<WindowData*>(glfwGetWindowUserPointer(window));
 
 			switch (action) {
-				case GLFW_PRESS: {
+				case GLFW_PRESS:
+				{
 					MouseButtonPressEvent event(button);
 					data.EventCallback(event);
 					break;
 				}
-				case GLFW_RELEASE: {
+				case GLFW_RELEASE:
+				{
 					MouseButtonReleaseEvent event(button);
 					data.EventCallback(event);
 					break;
@@ -133,26 +133,24 @@ namespace Framework {
 		});
 
 		glfwSetScrollCallback(native_window_, [](GLFWwindow* window, double offsetX, double offsetY) {
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			WindowData& data = *static_cast<WindowData*>(glfwGetWindowUserPointer(window));
 			MouseScrollEvent event((float)offsetX, (float)offsetY);
 			data.EventCallback(event);
 		});
 
 		glfwSetCursorPosCallback(native_window_, [](GLFWwindow* window, double x, double y) {
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			WindowData& data = *static_cast<WindowData*>(glfwGetWindowUserPointer(window));
 			MouseMoveEvent event((float)x, (float)y);
 			data.EventCallback(event);
 		});
 	}
 
 	// function called in the destructor
-	void WindowsWindow::Shutdown()
-	{
+	void WindowsWindow::Shutdown() {
 		glfwDestroyWindow(native_window_);
 	}
 
-	void WindowsWindow::SetVSync(bool state)
-	{
+	void WindowsWindow::SetVSync(const bool state) {
 		data_.VSync = state;
 
 		if (state)
@@ -161,8 +159,7 @@ namespace Framework {
 			glfwSwapInterval(0);
 	}
 
-	bool WindowsWindow::IsVSyncEnabled() const
-	{
+	bool WindowsWindow::IsVSyncEnabled() const {
 		return data_.VSync;
 	}
 

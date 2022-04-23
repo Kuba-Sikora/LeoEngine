@@ -17,15 +17,18 @@ namespace Framework {
 	class Event {
 
 	public:
-		bool IsHandled() { return m_Handled; }
-		void StopPropagation() { m_Handled = true; }
+		// virtual constructor for polymorphism
+		virtual ~Event() = default;
 
-		virtual EventType GetEventType() const = 0;
-		virtual const char* GetName() const = 0;
-		virtual std::string ToString() const { return GetName(); }
+		[[nodiscard]] bool IsHandled() const { return handled_; }
+		void StopPropagation() { handled_ = true; }
+
+		[[nodiscard]] virtual EventType GetEventType() const = 0;
+		[[nodiscard]] virtual const char* GetName() const = 0;
+		[[nodiscard]] virtual std::string ToString() const { return GetName(); }
 
 	protected:
-		bool m_Handled = false;
+		bool handled_ = false;
 
 	};
 

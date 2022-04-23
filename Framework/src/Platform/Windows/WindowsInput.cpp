@@ -5,12 +5,12 @@
 namespace Framework {
 
 	bool Input::IsKeyPressed(void* window, int key) {
-		int state = glfwGetKey(static_cast<GLFWwindow*>(window), key);
+		const int state = glfwGetKey(static_cast<GLFWwindow*>(window), key);
 		return state == GLFW_PRESS || state == GLFW_REPEAT;
 	}
 
 	bool Input::IsMouseButtonPressed(void* window, int button) {
-		int state = glfwGetMouseButton(static_cast<GLFWwindow*>(window), button);
+		const int state = glfwGetMouseButton(static_cast<GLFWwindow*>(window), button);
 		return state == GLFW_PRESS;
 	}
 

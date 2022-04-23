@@ -15,14 +15,14 @@ public:
 	void OnEvent(Framework::Event& e);
 	void OnWindowEvent(Framework::Event& e);
 
-	bool IsKeyPressed(int key);
-	bool IsMouseButtonPressed(int button);
+	[[nodiscard]] bool IsKeyPressed(int key) const;
+	[[nodiscard]] bool IsMouseButtonPressed(int button) const;
 
 	// Detached view - own window
 	void DetachFromEditor();
 	void AttachToEditor();
 
-	std::shared_ptr<Framework::Window> GetWindow() const { return window_; };
+	[[nodiscard]] std::shared_ptr<Framework::Window> GetWindow() const { return window_; };
 
 private:
 	Application();

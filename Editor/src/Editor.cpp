@@ -13,11 +13,11 @@ Editor* Editor::Get() {
 	return s_Instance;
 }
 
-Editor::Editor(Application* app) : application_(app), running_(false) {
-	Framework::WindowProps props = Framework::WindowProps("Editor Window");
+Editor::Editor(Application* app) : running_(false), application_(app) {
+	const Framework::WindowProps props = Framework::WindowProps("Editor Window");
 	window_ = std::shared_ptr<Framework::Window>(Framework::Window::Create(
-		std::bind(&Editor::OnEvent, this, std::placeholders::_1),
-		std::bind(&Editor::OnWindowEvent, this, std::placeholders::_1),
+		[this](auto&& placeHolder1) { OnEvent(std::forward<decltype(placeHolder1)>(placeHolder1)); },
+		[this](auto&& placeHolder1) { OnWindowEvent(std::forward<decltype(placeHolder1)>(placeHolder1)); },
 		props
 	));
 }
@@ -38,6 +38,10 @@ void Editor::OnEvent(Framework::Event& e) {
 	application_->OnEvent(e);
 }
 
+void Editor::OnUpdate() {
+
+}
+
 void Editor::OnWindowEvent(Framework::Event& e) {
 	switch (e.GetEventType()) {
 		case Framework::EventType::WindowClose:
@@ -47,9 +51,9 @@ void Editor::OnWindowEvent(Framework::Event& e) {
 		case Framework::EventType::WindowResize:
 			// casting the Event object to WindowResizeEvent in order to access the
 			// width and height
-			Framework::WindowResizeEvent resizeEvent = *dynamic_cast<Framework::WindowResizeEvent*>(&e);
-			APP_LOG("window resize: {0}px, {1}px", resizeEvent.getWidth(),
-				resizeEvent.getHeight());
+			const Framework::WindowResizeEvent resizeEvent = *dynamic_cast<Framework::WindowResizeEvent*>(&e);
+			APP_LOG("window resize: {0}px, {1}px", resizeEvent.GetWidth(),
+				resizeEvent.GetHeight());
 			break;
 	}
 }

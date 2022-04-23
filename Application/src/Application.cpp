@@ -41,8 +41,8 @@ void Application::OnWindowEvent(Framework::Event& e) {
 			// casting the Event object to WindowResizeEvent in order to access the
 			// width and height
 			Framework::WindowResizeEvent resizeEvent = *dynamic_cast<Framework::WindowResizeEvent*>(&e);
-			APP_LOG("window resize: {0}px, {1}px", resizeEvent.getWidth(),
-				resizeEvent.getHeight());
+			APP_LOG("window resize: {0}px, {1}px", resizeEvent.GetWidth(),
+				resizeEvent.GetHeight());
 			break;
 	}
 }
@@ -58,10 +58,10 @@ void Application::OnUpdate() {
 
 void Application::DetachFromEditor() {
 	detached_ = true;
-	Framework::WindowProps props = Framework::WindowProps("Application Window");
+	const Framework::WindowProps props = Framework::WindowProps("Application Window");
 	window_ = std::shared_ptr<Framework::Window>(Framework::Window::Create(
-		std::bind(&Application::OnEvent, this, std::placeholders::_1),
-		std::bind(&Application::OnWindowEvent, this, std::placeholders::_1),
+		[this](auto&& placeHolder1) { OnEvent(std::forward<decltype(placeHolder1)>(placeHolder1)); },
+		[this](auto&& placeHolder1) { OnWindowEvent(std::forward<decltype(placeHolder1)>(placeHolder1)); },
 		props
 	));
 }
@@ -71,11 +71,11 @@ void Application::AttachToEditor() {
 	window_ = Editor::Get()->GetWindow();
 }
 
-bool Application::IsKeyPressed(int key) {
+bool Application::IsKeyPressed(int key) const {
 	return Framework::Input::IsKeyPressed(window_->GetNativeWindow(), key);
 }
 
-bool Application::IsMouseButtonPressed(int button) {
+bool Application::IsMouseButtonPressed(int button) const {
 	return Framework::Input::IsMouseButtonPressed(window_->GetNativeWindow(), button);
 }
 

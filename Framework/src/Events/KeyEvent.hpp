@@ -8,15 +8,15 @@ namespace Framework {
 	class KeyEvent : public Event {
 
 	public:
-		inline unsigned int getKeyCode() { return m_KeyCode; };
+		[[nodiscard]] unsigned int GetKeyCode() const { return key_code_; };
 
 	protected:
 
-		// Constructor is protected - can't create KeyEvent outside Event class
+		// Constructor is protected - can't create KeyEvent instances (only their derived types)
 		KeyEvent(unsigned int keyCode)
-			: m_KeyCode(keyCode) {}
+			: key_code_(keyCode) {}
 
-		unsigned int m_KeyCode;
+		unsigned int key_code_;
 
 	};
 
@@ -25,14 +25,14 @@ namespace Framework {
 
 	public:
 		KeyPressEvent(unsigned int keyCode, int repeatCount)
-			: KeyEvent(keyCode), m_RepeatCount(repeatCount) {}
+			: KeyEvent(keyCode), repeat_count_(repeatCount) {}
 
-		inline int getRepeatCount() { return m_RepeatCount; }
+		[[nodiscard]] int GetRepeatCount() const { return repeat_count_; }
 
 		EVENT_CLASS_TYPE(KeyPress)
 
 	private:
-		int m_RepeatCount;
+		int repeat_count_;
 
 	};
 
@@ -41,12 +41,10 @@ namespace Framework {
 
 	public:
 		KeyReleaseEvent(unsigned int keyCode)
-			: KeyEvent(keyCode), m_KeyCode(keyCode) {}
+			: KeyEvent(keyCode) {}
 
 		EVENT_CLASS_TYPE(KeyRelease)
 
-	private:
-		unsigned int m_KeyCode;
 
 	};
 

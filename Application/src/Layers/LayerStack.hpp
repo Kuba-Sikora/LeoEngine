@@ -21,7 +21,7 @@ namespace Framework {
 		void PopLayerFront(Layer* layer);
 		void PopLayerBack(Layer* layer);
 
-		void OnEvent(Event& e);
+		void OnEvent(Event& e) const;
 
 	private:
 		LayerStack();
@@ -30,7 +30,7 @@ namespace Framework {
 
 		// - a vector that stores pointers to all the layers (cannot store abstract classes by value)
 		// - emplace method is used to push layers in order to avoid unnecessary copying
-		std::vector<Layer*> m_Layers;
+		std::vector<Layer*> layers_;
 
 	};
 

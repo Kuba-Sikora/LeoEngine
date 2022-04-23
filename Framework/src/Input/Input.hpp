@@ -1,5 +1,4 @@
 #pragma once
-#include "Window/Window.hpp"
 
 namespace Framework {
 

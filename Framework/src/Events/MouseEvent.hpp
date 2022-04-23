@@ -8,13 +8,13 @@ namespace Framework {
 	class MouseButtonEvent : public Event {
 
 	public:
-		inline unsigned int getButtonCode() { return m_ButtonCode; };
+		[[nodiscard]] unsigned int GetButtonCode() const { return button_code_; };
 
 	protected:
 		MouseButtonEvent(unsigned int buttonCode)
-			: m_ButtonCode(buttonCode) {}
+			: button_code_(buttonCode) {}
 
-		unsigned int m_ButtonCode;
+		unsigned int button_code_;
 
 	};
 
@@ -23,12 +23,9 @@ namespace Framework {
 
 	public:
 		MouseButtonPressEvent(unsigned int buttonCode)
-			: MouseButtonEvent(buttonCode), m_ButtonCode(buttonCode) {}
+			: MouseButtonEvent(buttonCode) {}
 
 		EVENT_CLASS_TYPE(MouseButtonPress)
-
-	private:
-		unsigned int m_ButtonCode;
 
 	};
 
@@ -37,12 +34,9 @@ namespace Framework {
 
 	public:
 		MouseButtonReleaseEvent(unsigned int buttonCode)
-			: MouseButtonEvent(buttonCode), m_ButtonCode(buttonCode) {}
+			: MouseButtonEvent(buttonCode) {}
 
 		EVENT_CLASS_TYPE(MouseButtonRelease)
-
-	private:
-		unsigned int m_ButtonCode;
 
 	};
 
@@ -51,15 +45,15 @@ namespace Framework {
 
 	public:
 		MouseMoveEvent(float x, float y)
-			: m_MouseX(x), m_MouseY(y) {}
+			: mouse_x_(x), mouse_y_(y) {}
 
-		inline float getX() { return m_MouseX; };
-		inline float getY() { return m_MouseY; };
+		[[nodiscard]] float GetX() const { return mouse_x_; };
+		[[nodiscard]] float GetY() const { return mouse_y_; };
 
 		EVENT_CLASS_TYPE(MouseMove)
 
 	private:
-		float m_MouseX, m_MouseY;
+		float mouse_x_, mouse_y_;
 
 	};
 
@@ -68,16 +62,16 @@ namespace Framework {
 
 	public:
 		MouseScrollEvent(float offsetX, float offsetY)
-			: m_OffsetX(offsetX), m_OffsetY(offsetY) {}
+			: offset_x_(offsetX), offset_y_(offsetY) {}
 
-		inline float getOffsetX() { return m_OffsetX; };
-		inline float getOffsetY() { return m_OffsetY; };
+		[[nodiscard]] float GetOffsetX() const { return offset_x_; };
+		[[nodiscard]] float GetOffsetY() const { return offset_y_; };
 
 		EVENT_CLASS_TYPE(MouseScroll)
 
 	private:
-		float m_OffsetX;
-		float m_OffsetY;
+		float offset_x_;
+		float offset_y_;
 
 	};
 

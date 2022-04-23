@@ -12,10 +12,10 @@ namespace Framework {
 		unsigned int Height;
 
 		WindowProps(
-			const std::string& title = "Leo Engine Window",
-			unsigned int width = 1280,
-			unsigned int height = 720
-		) : Title(title), Width(width), Height(height) {}
+			std::string title = "Leo Engine Window",
+			const unsigned int width = 1280,
+			const unsigned int height = 720
+		) : Title(std::move(title)), Width(width), Height(height) {}
 	};
 
 	class Window {
@@ -27,14 +27,14 @@ namespace Framework {
 		virtual ~Window() { CORE_LOG("delete Window"); };
 		virtual void OnUpdate() = 0;
 
-		virtual unsigned int GetWidth() const = 0;
-		virtual unsigned int GetHeight() const = 0;
-		virtual std::string GetTitle() const = 0;
+		[[nodiscard]] virtual unsigned int GetWidth() const = 0;
+		[[nodiscard]] virtual unsigned int GetHeight() const = 0;
+		[[nodiscard]] virtual std::string GetTitle() const = 0;
 
-		virtual bool IsVSyncEnabled() const = 0;
+		[[nodiscard]] virtual bool IsVSyncEnabled() const = 0;
 		virtual void SetVSync(bool state) = 0;
 
-		virtual void* GetNativeWindow() const = 0;
+		[[nodiscard]] virtual void* GetNativeWindow() const = 0;
 
 		// Create() function to be defined per platform
 		// having the WidowCloseCallback separately so that the OnEvent function inside Application doesn't have to check if every event is a Close event

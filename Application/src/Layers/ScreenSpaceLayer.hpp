@@ -7,7 +7,7 @@ namespace Framework {
 	class ScreenSpaceLayer : public Layer {
 
 	public:
-		ScreenSpaceLayer(std::string title) : Layer(title) {}
+		ScreenSpaceLayer(std::string title) : Layer(std::move(title)) {}
 
 		virtual bool OnEvent(Event& e) override;
 

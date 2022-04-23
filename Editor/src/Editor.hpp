@@ -3,6 +3,7 @@
 #include "Application.hpp"
 #include "Framework.hpp"
 
+// singleton Editor class - Construct() method to create the instance, Get() to get existing instance
 class Editor {
 
 public:
@@ -17,7 +18,7 @@ public:
 	void OnEvent(Framework::Event& e);
 	void OnWindowEvent(Framework::Event& e);
 
-	std::shared_ptr<Framework::Window> GetWindow() const { return window_; };
+	[[nodiscard]] std::shared_ptr<Framework::Window> GetWindow() const { return window_; };
 
 private:
 	Editor(Application* app);
