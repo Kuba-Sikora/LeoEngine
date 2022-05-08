@@ -25,7 +25,6 @@ Editor::Editor(Application* app) : running_(false), application_(app) {
 void Editor::Run() {
 	running_ = true;
 	application_->AttachToEditor();
-	application_->DetachFromEditor();
 
 	while (running_) {
 		window_->OnUpdate();

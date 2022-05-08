@@ -23,7 +23,8 @@ project "Framework"
 		"%{includeDir.spdlog}",
 		"%{includeDir.GLFW}",
 		"%{includeDir.GLAD}",
-		"%{includeDir.ImGui}"
+		"%{includeDir.ImGui}",
+		"%{includeDir.glm}"
 	}
 
 	links

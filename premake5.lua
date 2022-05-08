@@ -17,6 +17,7 @@ includeDir["spdlog"] = "%{wks.location}/vendor/spdlog/include"
 includeDir["GLFW"] = "%{wks.location}/vendor/glfw/include"
 includeDir["GLAD"] = "%{wks.location}/vendor/glad/include"
 includeDir["ImGui"] = "%{wks.location}/vendor/imgui"
+includeDir["glm"] = "%{wks.location}/vendor/glm-master"
 
 -- Including vendor premake5 files
 include "vendor/glfw"

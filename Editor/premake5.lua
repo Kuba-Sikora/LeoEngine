@@ -19,6 +19,7 @@ project "Editor"
 	{
 		"%{includeDir.spdlog}",
 		"%{includeDir.GLFW}",
+		"%{includeDir.glm}",
 		"%{wks.location}/Framework/src",
 		"%{wks.location}/Application/src"
 	}

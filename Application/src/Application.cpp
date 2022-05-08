@@ -14,7 +14,6 @@ Application* Application::GetInstance() {
 
 Application::Application() {
 	APP_LOG("application constructor");
-
 	
 	// m_LayerStack = std::unique_ptr<LayerStack>(LayerStack::GetInstance());
 
